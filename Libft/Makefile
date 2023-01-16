@@ -6,7 +6,7 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/10 14:07:45 by arommers      #+#    #+#                  #
-#    Updated: 2022/11/16 10:32:58 by arommers      ########   odam.nl          #
+#    Updated: 2023/01/15 14:03:37 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,13 +32,12 @@ SRC =  ft_split.c ft_itoa.c 			\
 		ft_strchr.c ft_isascii.c 		\
 		ft_isprint.c ft_strrchr.c 		\
 		ft_strlen.c ft_strncmp.c
-BSRC = ft_lstnew.c ft_lstadd_front.c 	\
+		ft_lstnew.c ft_lstadd_front.c 	\
 		ft_lstsize.c ft_lstlast.c 		\
 		ft_lstadd_back.c ft_lstdelone.c \
 		ft_lstclear.c ft_lstiter.c 		\
 		ft_lstmap.c
 OBJ = $(SRC:%.c=%.o)
-BONUS = $(BSRC:%.c=%.o)
 
 #colours
 PINK	= \x1b[35m
@@ -60,12 +59,9 @@ $(NAME): start $(OBJ)
 	@echo "Compilation Done $(PINK) $^ $(RESET)"
 	@$(CC) $(CFLAGS) -c -o $@ $^
 
-bonus:	${OBJ} ${BONUS}
-	@ar -rcs $(NAME) $(OBJ) $(BONUS)
-
 clean:
 	@echo "Cleaning Done $(GREEN) $@ $(PROJECT) $(RESET)"
-	@rm -f $(OBJ) $(BONUS)
+	@rm -f $(OBJ)
 	
 
 fclean: clean
@@ -74,4 +70,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
