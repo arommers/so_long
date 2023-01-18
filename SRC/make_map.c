@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/16 11:51:33 by arommers      #+#    #+#                 */
-/*   Updated: 2023/01/16 16:04:01 by arommers      ########   odam.nl         */
+/*   Updated: 2023/01/18 12:23:51 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,9 @@ void	make_array(char *name, t_game *data)
 		data->map->height++;
 	close(fd);
 	free(line);
+}
+
+void	fill_map(t_game *data)
+{
+	
 }

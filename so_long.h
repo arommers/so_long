@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/01/16 15:25:29 by arommers      ########   odam.nl         */
+/*   Updated: 2023/01/18 13:12:48 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,15 @@
 # define WIDTH 256
 # define HEIGHT 256
 
+
+
 typedef struct s_play {
-	int		x_pos;
-	int		y_pos;
-	int		next_x;
-	int		next_y;
+	int				x_pos;
+	int				y_pos;
+	int				next_x;
+	int				next_y;
+	mlx_texture_t	*player_t;
+	mlx_image_t		*player_i;
 }	t_play;
 
 typedef struct s_img {
