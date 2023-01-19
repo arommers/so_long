@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/01/19 15:10:01 by arommers      ########   odam.nl         */
+/*   Updated: 2023/01/19 15:20:23 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 	init_var(data);
 	//check_map(&data);
 	make_array(argv[1], data);
-	data->mlx = mlx_init(WIDTH, HEIGHT, "so_long", true);
+	data->mlx = mlx_init(data->map->width * 64, data->map->height * 64, "so_long", true);
 	data->play->player_t = mlx_load_png("./Sprites/gras.png");
 	data->play->player_i = mlx_texture_to_image(data->mlx, data->play->player_t);
 	if (!data->mlx)

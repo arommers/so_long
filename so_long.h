@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/01/19 14:37:46 by arommers      ########   odam.nl         */
+/*   Updated: 2023/01/19 15:38:00 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ typedef struct s_img {
 }	t_img;
 
 typedef struct s_map {
-	int		width;
-	int		height;
-	char	**grid;
+	size_t		width;
+	size_t		height;
+	char		**grid;
 }	t_map;
 
 typedef struct s_game {
