@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/14 16:51:47 by arommers      #+#    #+#                 */
-/*   Updated: 2022/11/02 15:50:07 by arommers      ########   odam.nl         */
+/*   Updated: 2023/01/18 15:01:28 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdio.h>
+# include <fcntl.h>
+# include "get_next_line.h"
 
 typedef struct s_list
 {

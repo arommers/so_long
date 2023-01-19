@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/01/18 13:12:48 by arommers      ########   odam.nl         */
+/*   Updated: 2023/01/19 14:37:46 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "./MLX42/include/MLX42/MLX42.h"
-# include "./libft/libft.h"
+# include "./Libft/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
@@ -22,8 +22,6 @@
 # include <memory.h>
 # define WIDTH 256
 # define HEIGHT 256
-
-
 
 typedef struct s_play {
 	int				x_pos;
@@ -60,6 +58,8 @@ typedef struct s_game {
 	mlx_t	*mlx;
 }	t_game;
 
-void	make_array(t_game *data)
+void	make_array(char *map, t_game *data);
+t_map	*init_map(int width, int height);
+void	free_map(t_map *map);
 
 #endif

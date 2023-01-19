@@ -6,7 +6,7 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/13 13:44:52 by arommers      #+#    #+#                  #
-#    Updated: 2023/01/14 14:53:05 by arommers      ########   odam.nl          #
+#    Updated: 2023/01/18 15:45:07 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = so_long
 LIBFT = ./Libft/libft.a
 MLX42 = ./MLX42/libmlx42.a
 SO_LONG = ./SRC/so_long.a
-SRC = ./SRC/main.c
+SRC = ./SRC/so_long.c ./SRC/make_map.c
 OBJ = $(SRC:.c=.o)
 
 BOLD    := \033[1m
