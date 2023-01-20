@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/01/19 15:38:00 by arommers      ########   odam.nl         */
+/*   Updated: 2023/01/20 15:00:29 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,9 @@ typedef struct s_game {
 	mlx_t	*mlx;
 }	t_game;
 
-void	make_array(char *map, t_game *data);
+t_game	*make_array(char *map, t_game *data);
 t_map	*init_map(int width, int height);
+void	fill_background(t_game *data);
 void	free_map(t_map *map);
 
 #endif
