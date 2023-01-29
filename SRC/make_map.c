@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/16 11:51:33 by arommers      #+#    #+#                 */
-/*   Updated: 2023/01/29 13:27:05 by arommers      ########   odam.nl         */
+/*   Updated: 2023/01/29 17:34:32 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,19 @@ char	*read_map(char *map)
 	while (1)
 	{
 		line = get_next_line (fd);
+		printf("%s\n", line);
+		// exit(17);
 		if (line)
 		{
 			line_joined = ft_strjoin(line_joined, line);
+			printf("%s\n", line_joined);
 		}
 		else
 			break ;
 	}
 	close (fd);
-	return (free(line), line_joined);
+	free(line);
+	return (line_joined);
 }
 
 size_t	row_count(char **grid)
@@ -63,7 +67,16 @@ t_game	*initialize_data(char *map)
 	t_game	*data;
 
 	map_as_str = read_map(map);
+	printf("%s\n", map_as_str);
 	map_as_array = ft_split(map_as_str, '\n');
+	
+	int	j = 0;
+	while (map_as_array[j])
+	{
+		printf("%s\n", map_as_array[j]);
+		j++;
+	}
+	// exit(17);
 	data = initialize_game_struct(map_as_array);
 	return (data);
 }
@@ -79,24 +92,50 @@ void	fill_background(t_game *data)
 {
 	size_t		x;
 	size_t		y;
-	size_t		i;
-	size_t		j;
 
 	x = 0;
 	y = 0;
-	i = 0;
-	j = 0;
 	while (y < data->height)
 	{
 		x = 0;
 		while (x < data->width)
 		{
-			mlx_image_to_window(data->mlx, data->img->Bush, i, j);
-			i += PIXELS;
+			mlx_image_to_window(data->mlx, data->img->grass, x * PIXELS, y * PIXELS);
 			x++;
 		}
-		i = 0;
-		j += PIXELS;
+		y++;
+	}
+}
+
+void	render_map(t_game *data)
+{
+	size_t		x;
+	size_t		y;
+	
+	int	j = 0;
+	while (data->grid[j])
+	{
+		printf("%s\n", data->grid[j]);
+		j++;
+	}
+
+	x = 0;
+	y = 0;
+	while (y < data->height)
+	{
+		x = 0;
+		while (x < data->width)
+		{
+			if (data->grid[y][x] == '1')
+				mlx_image_to_window(data->mlx, data->img->bush, x * PIXELS, y * PIXELS);
+			if (data->grid[y][x] == 'C')
+				mlx_image_to_window(data->mlx, data->img->rupee, x * PIXELS, y * PIXELS);
+			if (data->grid[y][x] == 'P')
+				mlx_image_to_window(data->mlx, data->img->link, x * PIXELS, y * PIXELS);
+			if (data->grid[y][x] == 'E')
+				mlx_image_to_window(data->mlx, data->img->exit, x * PIXELS, y * PIXELS);
+			x++;
+		}
 		y++;
 	}
 }

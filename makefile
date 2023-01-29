@@ -6,7 +6,7 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/13 13:44:52 by arommers      #+#    #+#                  #
-#    Updated: 2023/01/18 15:45:07 by arommers      ########   odam.nl          #
+#    Updated: 2023/01/29 17:16:42 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,3 +68,6 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+run: all
+	./so_long Maps/map1.ber
