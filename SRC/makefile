@@ -6,14 +6,14 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/14 11:40:10 by arommers      #+#    #+#                  #
-#    Updated: 2023/01/18 15:44:14 by arommers      ########   odam.nl          #
+#    Updated: 2023/01/28 16:19:13 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = so_long.a
-SRC =  so_long.c make_map.c
+SRC =  so_long.c make_map.c make_images.c
 OBJ = $(SRC:.c=.o)
 
 MAGENTA := \033[35;1m
