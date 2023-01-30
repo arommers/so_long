@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/16 11:51:33 by arommers      #+#    #+#                 */
-/*   Updated: 2023/01/29 17:34:32 by arommers      ########   odam.nl         */
+/*   Updated: 2023/01/30 10:17:25 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ char	*read_map(char *map)
 	int		fd;
 
 	fd = open(map, O_RDONLY);
+	line_joined = ft_calloc(1, 1);
+	if (!line_joined)
+		return (NULL);
 	while (1)
 	{
 		line = get_next_line (fd);
-		printf("%s\n", line);
-		// exit(17);
 		if (line)
 		{
 			line_joined = ft_strjoin(line_joined, line);
-			printf("%s\n", line_joined);
 		}
 		else
 			break ;
@@ -67,25 +67,10 @@ t_game	*initialize_data(char *map)
 	t_game	*data;
 
 	map_as_str = read_map(map);
-	printf("%s\n", map_as_str);
 	map_as_array = ft_split(map_as_str, '\n');
-	
-	int	j = 0;
-	while (map_as_array[j])
-	{
-		printf("%s\n", map_as_array[j]);
-		j++;
-	}
-	// exit(17);
 	data = initialize_game_struct(map_as_array);
+	free (map_as_str);
 	return (data);
-}
-
-t_game	*update_game_struct(mlx_t *mlx, t_img *images, t_game *game)
-{
-	game->mlx = mlx;
-	game->img = images;
-	return (game);
 }
 
 void	fill_background(t_game *data)
@@ -112,13 +97,6 @@ void	render_map(t_game *data)
 	size_t		x;
 	size_t		y;
 	
-	int	j = 0;
-	while (data->grid[j])
-	{
-		printf("%s\n", data->grid[j]);
-		j++;
-	}
-
 	x = 0;
 	y = 0;
 	while (y < data->height)
