@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/16 11:51:33 by arommers      #+#    #+#                 */
-/*   Updated: 2023/01/30 10:17:25 by arommers      ########   odam.nl         */
+/*   Updated: 2023/01/30 15:15:34 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ t_game	*initialize_game_struct(char **grid)
 	game->width = ft_strlen(grid[0]);
 	game->height = row_count(grid);
 	game->grid = grid;
+	// game->link_x = get_link_pos(game, 'x');
+	// game->link_y = get_link_pos(game, 'y');
+	// game->exit_x = get_exit_pos (game, 'x');
+	// game->exit_y = get_exit_pos (game, 'y');
 	return (game);
 }
 
@@ -96,7 +100,7 @@ void	render_map(t_game *data)
 {
 	size_t		x;
 	size_t		y;
-	
+
 	x = 0;
 	y = 0;
 	while (y < data->height)

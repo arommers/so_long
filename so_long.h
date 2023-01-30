@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/01/29 16:58:19 by arommers      ########   odam.nl         */
+/*   Updated: 2023/01/30 15:15:41 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,17 @@ typedef struct s_img {
 }	t_img;
 
 typedef struct s_game {
+	char	**grid;
 	size_t	width;
 	size_t	height;
-	// size_t	items;
-	// size_t	steps;
-	// size_t	collected;
-	// size_t	player_x;
-	// size_t	player_y;
-	// size_t	exit_x;
-	// size_t	exit_y;
-	// char	*map;
-	char	**grid;
+	size_t	items;
+	size_t	steps;
+	size_t	collected;
+	size_t	link_x;
+	size_t	link_y;
+	size_t	exit_x;
+	size_t	exit_y;
+	char	*map;
 	t_img	*img;
 	mlx_t	*mlx;
 }	t_game;
@@ -53,9 +53,10 @@ char	*read_map(char *map);
 size_t	row_count(char **grid);
 t_game	*initialize_game_struct(char **grid);
 t_game	*initialize_data(char *map);
-t_game	*update_game_struct(mlx_t *mlx, t_img *images, t_game *game);
 void	fill_background(t_game *data);
 void	render_map(t_game *data);
+// size_t	get_link_pos(t_game *game, char x);
+// size_t	get_exit_pos(t_game *game, char c );
 
 // make images functions
 t_img	*load_grass_texture(mlx_t *mlx, t_img *texture);
@@ -65,6 +66,9 @@ t_img	*load_link_texture(mlx_t *mlx, t_img *texture);
 t_img	*load_exit_texture(mlx_t *mlx, t_img *texture);
 t_img	*initialize_img_struct(mlx_t *mlx);
 
-// size_t	column_count(char **grid);
+// move functions
+
+// void	move_up(t_game *game);
+// void	move_hook(mlx_key_data_t keydata, t_game *game);
 
 #endif
