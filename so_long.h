@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/02 16:19:34 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/02 17:11:27 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_game	*initialize_game_struct(char **grid);
 t_game	*initialize_data(char *map);
 void	fill_background(t_game *data);
 void	render_map(t_game *data);
-size_t	count_items(t_game *game);
+size_t	count_rupees(t_game *game);
 size_t	get_link_pos(t_game *game, char c);
 size_t	get_exit_pos(t_game *game, char c );
 

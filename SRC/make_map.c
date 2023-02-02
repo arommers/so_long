@@ -6,11 +6,35 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/16 11:51:33 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/02 16:24:14 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/02 16:46:35 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../so_long.h"
+
+size_t	count_rupees(t_game *game)
+{
+	size_t	y;
+	size_t	x;
+	size_t	i;
+
+	y = 0;
+	i = 0;
+	while (y < game->height)
+	{
+		x = 0;
+		while (x < game->width)
+		{
+			if (game->grid[y][x] == 'C')
+			{
+				i += 1;
+			}
+			x++;
+		}
+		y++;
+	}
+	return (i);
+}
 
 char	*read_map(char *map)
 {
@@ -58,6 +82,8 @@ t_game	*initialize_game_struct(char **grid)
 	game->height = row_count(grid);
 	game->grid = grid;
 	game->steps = 0;
+	game->rupees = count_rupees(game);
+	printf("total rupees at start: %zu\n", game->rupees);
 	game->link_x = get_link_pos(game, 'x');
 	game->link_y = get_link_pos(game, 'y');
 	game->exit_x = get_exit_pos (game, 'x');

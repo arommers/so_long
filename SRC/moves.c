@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 11:49:11 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/02 16:29:50 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/02 17:39:08 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,17 @@
 void	check_game_status(t_game *game)
 {
 	printf("steps: %zu\n", game->steps);
-	// printf("rupees collected: %zu\n", game->collected);
+	if (game->collected == game->rupees)
+	{
+		mlx_image_to_window(game->mlx, game->img->exit_open,
+			game->exit_x * PIXELS, game->exit_y * PIXELS);
+		game->grid[game->exit_y][game->exit_x] = '0';
+		if (game->link_x == game->exit_x && game->link_y == game->exit_y)
+		{
+			mlx_close_window(game->mlx);
+			printf("YOU DID IT MOTHERFUCKER!!!!\nTHEY SAID IT COULDN'T BE DONE,\nBUT YOU SHOWED EM ALL WRONG\n");
+		}
+	}
 }
 
 void	load_link(t_game *game, char dir, size_t x, size_t y)
@@ -102,7 +112,7 @@ t_game	*move_right(t_game *game)
 t_game	*move_left(t_game *game)
 {
 	if (game->grid[game->link_y][game->link_x - 1] != '1'
-		&& game->grid[game->link_y][game->link_x + 1] != 'E')
+		&& game->grid[game->link_y][game->link_x - 1] != 'E')
 	{
 		if (game->grid[game->link_y][game->link_x - 1] == 'C')
 		{
