@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/01/30 14:16:04 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/02 12:39:11 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 	game->img = images;
 	fill_background(game);
 	render_map(game);
-	// mlx_key_hook(game->mlx, &move_hook, game);
+	mlx_key_hook(game->mlx, &move_hook, game);
 	mlx_loop(game->mlx);
 	// mlx_delete_texture(texture);
 	mlx_terminate(game->mlx);

@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/01/29 15:19:49 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/02 14:45:52 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,6 @@ t_img	*load_rupee_texture(mlx_t *mlx, t_img *texture)
 	return (texture);
 }
 
-t_img	*load_link_texture(mlx_t *mlx, t_img *texture)
-{
-	mlx_texture_t	*link;
-
-	link = mlx_load_png("./Sprites/Link.png");
-	if (!link)
-		return (NULL);
-	texture->link = mlx_texture_to_image(mlx, link);
-	if (!texture->link)
-		return (NULL);
-	mlx_delete_texture(link);
-	return (texture);
-}
-
 t_img	*load_exit_texture(mlx_t *mlx, t_img	*texture)
 {
 	mlx_texture_t	*exit;
@@ -93,6 +79,10 @@ t_img	*initialize_img_struct(mlx_t *mlx)
 	assets = load_bush_texture(mlx, assets);
 	assets = load_rupee_texture(mlx, assets);
 	assets = load_link_texture(mlx, assets);
+	assets = load_link_up(mlx, assets);
+	assets = load_link_down(mlx, assets);
+	assets = load_link_right(mlx, assets);
+	assets = load_link_left(mlx, assets);
 	assets = load_exit_texture(mlx, assets);
 	return (assets);
 }

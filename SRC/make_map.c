@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/16 11:51:33 by arommers      #+#    #+#                 */
-/*   Updated: 2023/01/30 15:15:34 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/02 15:01:23 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,11 @@ t_game	*initialize_game_struct(char **grid)
 	game->width = ft_strlen(grid[0]);
 	game->height = row_count(grid);
 	game->grid = grid;
-	// game->link_x = get_link_pos(game, 'x');
-	// game->link_y = get_link_pos(game, 'y');
-	// game->exit_x = get_exit_pos (game, 'x');
-	// game->exit_y = get_exit_pos (game, 'y');
+	game->steps = 0;
+	game->link_x = get_link_pos(game, 'x');
+	game->link_y = get_link_pos(game, 'y');
+	game->exit_x = get_exit_pos (game, 'x');
+	game->exit_y = get_exit_pos (game, 'y');
 	return (game);
 }
 
@@ -100,9 +101,11 @@ void	render_map(t_game *data)
 {
 	size_t		x;
 	size_t		y;
+	int			img_size;
 
 	x = 0;
 	y = 0;
+	img_size = 32;
 	while (y < data->height)
 	{
 		x = 0;
@@ -111,7 +114,8 @@ void	render_map(t_game *data)
 			if (data->grid[y][x] == '1')
 				mlx_image_to_window(data->mlx, data->img->bush, x * PIXELS, y * PIXELS);
 			if (data->grid[y][x] == 'C')
-				mlx_image_to_window(data->mlx, data->img->rupee, x * PIXELS, y * PIXELS);
+				mlx_image_to_window(data->mlx, data->img->rupee,
+					x * PIXELS + img_size / 2, y * PIXELS + img_size / 2);
 			if (data->grid[y][x] == 'P')
 				mlx_image_to_window(data->mlx, data->img->link, x * PIXELS, y * PIXELS);
 			if (data->grid[y][x] == 'E')
