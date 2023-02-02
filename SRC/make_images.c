@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/02 14:45:52 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/02 16:27:13 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,29 @@ t_img	*load_rupee_texture(mlx_t *mlx, t_img *texture)
 	return (texture);
 }
 
-t_img	*load_exit_texture(mlx_t *mlx, t_img	*texture)
+t_img	*load_exit_closed(mlx_t *mlx, t_img	*texture)
 {
 	mlx_texture_t	*exit;
 
 	exit = mlx_load_png("./Sprites/Exit_Closed.png");
 	if (!exit)
 		return (NULL);
-	texture->exit = mlx_texture_to_image(mlx, exit);
-	if (!texture->exit)
+	texture->exit_closed = mlx_texture_to_image(mlx, exit);
+	if (!texture->exit_closed)
+		return (NULL);
+	mlx_delete_texture(exit);
+	return (texture);
+}
+
+t_img	*load_exit_open(mlx_t *mlx, t_img *texture)
+{
+	mlx_texture_t	*exit;
+
+	exit = mlx_load_png("./Sprites/Exit_Open.png");
+	if (!exit)
+		return (NULL);
+	texture->exit_open = mlx_texture_to_image(mlx, exit);
+	if (!texture->exit_open)
 		return (NULL);
 	mlx_delete_texture(exit);
 	return (texture);
@@ -83,6 +97,7 @@ t_img	*initialize_img_struct(mlx_t *mlx)
 	assets = load_link_down(mlx, assets);
 	assets = load_link_right(mlx, assets);
 	assets = load_link_left(mlx, assets);
-	assets = load_exit_texture(mlx, assets);
+	assets = load_exit_closed(mlx, assets);
+	assets = load_exit_open(mlx, assets);
 	return (assets);
 }

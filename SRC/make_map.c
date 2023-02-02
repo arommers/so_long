@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/16 11:51:33 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/02 15:01:23 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/02 16:24:14 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ void	render_map(t_game *data)
 			if (data->grid[y][x] == 'P')
 				mlx_image_to_window(data->mlx, data->img->link, x * PIXELS, y * PIXELS);
 			if (data->grid[y][x] == 'E')
-				mlx_image_to_window(data->mlx, data->img->exit, x * PIXELS, y * PIXELS);
+				mlx_image_to_window(data->mlx, data->img->exit_closed, x * PIXELS, y * PIXELS);
 			x++;
 		}
 		y++;

@@ -6,11 +6,17 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 11:49:11 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/02 15:54:19 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/02 16:29:50 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../so_long.h"
+
+void	check_game_status(t_game *game)
+{
+	printf("steps: %zu\n", game->steps);
+	// printf("rupees collected: %zu\n", game->collected);
+}
 
 void	load_link(t_game *game, char dir, size_t x, size_t y)
 {
@@ -44,7 +50,8 @@ void	move_select(t_game *game, char line, char dir)
 
 t_game	*move_up(t_game *game)
 {
-	if (game->grid[game->link_y - 1][game->link_x] != '1')
+	if (game->grid[game->link_y - 1][game->link_x] != '1'
+		&& game->grid[game->link_y - 1][game->link_x] != 'E')
 	{
 		if (game->grid[game->link_y - 1][game->link_x] == 'C')
 		{
@@ -54,12 +61,14 @@ t_game	*move_up(t_game *game)
 		game->link_y -= 1;
 		game->steps += 1;
 	}
+	check_game_status(game);
 	return (game);
 }
 
 t_game	*move_down(t_game *game)
 {
-	if (game->grid[game->link_y + 1][game->link_x] != '1')
+	if (game->grid[game->link_y + 1][game->link_x] != '1'
+		&& game->grid[game->link_y + 1][game->link_x] != 'E')
 	{
 		if (game->grid[game->link_y + 1][game->link_x] == 'C')
 		{
@@ -69,12 +78,14 @@ t_game	*move_down(t_game *game)
 		game->link_y += 1;
 		game->steps += 1;
 	}
+	check_game_status(game);
 	return (game);
 }
 
 t_game	*move_right(t_game *game)
 {
-	if (game->grid[game->link_y][game->link_x + 1] != '1')
+	if (game->grid[game->link_y][game->link_x + 1] != '1'
+		&& game->grid[game->link_y][game->link_x + 1] != 'E')
 	{
 		if (game->grid[game->link_y][game->link_x + 1] == 'C')
 		{
@@ -84,12 +95,14 @@ t_game	*move_right(t_game *game)
 		game->link_x += 1;
 		game->steps += 1;
 	}
+	check_game_status(game);
 	return (game);
 }
 
 t_game	*move_left(t_game *game)
 {
-	if (game->grid[game->link_y][game->link_x - 1] != '1')
+	if (game->grid[game->link_y][game->link_x - 1] != '1'
+		&& game->grid[game->link_y][game->link_x + 1] != 'E')
 	{
 		if (game->grid[game->link_y][game->link_x - 1] == 'C')
 		{
@@ -99,6 +112,7 @@ t_game	*move_left(t_game *game)
 		game->link_x -= 1;
 		game->steps += 1;
 	}
+	check_game_status(game);
 	return (game);
 }
 

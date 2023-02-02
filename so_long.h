@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/02 15:47:12 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/02 16:19:34 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ typedef struct s_img {
 	mlx_image_t		*link_down;
 	mlx_image_t		*link_right;
 	mlx_image_t		*link_left;
-	mlx_image_t		*exit;	
+	mlx_image_t		*exit_closed;
+	mlx_image_t		*exit_open;	
 }	t_img;
 
 typedef struct s_game {
@@ -46,7 +47,6 @@ typedef struct s_game {
 	size_t	link_y;
 	size_t	exit_x;
 	size_t	exit_y;
-	// char	*map;
 	t_img	*img;
 	mlx_t	*mlx;
 }	t_game;
@@ -72,7 +72,8 @@ t_img	*load_link_up(mlx_t *mlx, t_img *texture);
 t_img	*load_link_down(mlx_t *mlx, t_img *texture);
 t_img	*load_link_right(mlx_t *mlx, t_img *texture);
 t_img	*load_link_left(mlx_t *mlx, t_img *texture);
-t_img	*load_exit_texture(mlx_t *mlx, t_img *texture);
+t_img	*load_exit_closed(mlx_t *mlx, t_img *texture);
+t_img	*load_exit_open(mlx_t *mlx, t_img *texture);
 t_img	*initialize_img_struct(mlx_t *mlx);
 void	load_link(t_game *game, char dir, size_t x, size_t y);
 
@@ -84,5 +85,7 @@ t_game	*move_down(t_game *game);
 t_game	*move_right(t_game *game);
 t_game	*move_left(t_game *game);
 void	move_hook(mlx_key_data_t keydata, void *data);
+
+void	check_game_status(t_game *game);
 
 #endif
