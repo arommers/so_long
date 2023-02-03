@@ -20,7 +20,6 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (0);
 	game = initialize_data(argv[1]);
-	//check_map(&data);
 	game->mlx = mlx_init(game->width * PIXELS,
 			game->height * PIXELS, "test", true);
 	if (!game->mlx)

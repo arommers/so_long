@@ -23,7 +23,7 @@ SRC = ./SRC/so_long.c ./SRC/render_map.c	\
 	./SRC/load_link.c ./SRC/load_images.c	\
 	./SRC/initialize_structs.c 				\
 	./SRC/get_coordinates.c					\
-	./SRC/directions.c 
+	./SRC/directions.c ./SRC/map_check.c
 OBJ = $(SRC:.c=.o)
 
 BOLD    := \033[1m

@@ -39,7 +39,7 @@ t_game	*initialize_data(char *map)
 
 	map_as_str = read_map(map);
 	map_as_array = ft_split(map_as_str, '\n');
-	// check_map_validity(map_as_array);
+	check_map_shape(map_as_array);
 	data = initialize_game_struct(map_as_array);
 	free (map_as_str);
 	return (data);

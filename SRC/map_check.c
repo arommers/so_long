@@ -12,14 +12,35 @@
 
 #include "../so_long.h"
 
-int	**check_map_validity(char **grid)
+
+void	error_message(char *msg)
 {
-	int		P;
-	int		E;
-	int		C;
-
-	P = 0;
-	E = 0;
-	C = 0;
-
+	ft_putstr_fd("Error\n", 2);
+	ft_putendl_fd(msg, 2);
+	exit(1);
 }
+
+void	check_map_shape(char **grid)
+{
+	size_t	i;
+	size_t	len;
+
+	i = 0;
+	len = ft_strlen(grid[i]);
+	if (len < 3)
+		error_message("Map is not big enough");
+	i++;
+	while(grid[i])
+	{
+		if (ft_strlen(grid[i]) != len)
+			error_message("Map is no rectangle");
+		i++;
+	}
+	if (i < 3)
+			error_message("Map is not big enough");
+}
+
+// int	**check_map_validity(char **grid)
+// {
+// 	check_map_shape(grid);
+// }

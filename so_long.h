@@ -86,6 +86,11 @@ t_game	*move_right(t_game *game);
 t_game	*move_left(t_game *game);
 void	move_hook(mlx_key_data_t keydata, void *data);
 
+// Map Validation
+
+void	error_message(char *msg);
+void	check_map_shape(char **grid);
+
 void	check_game_status(t_game *game);
 
 #endif

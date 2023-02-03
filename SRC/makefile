@@ -18,7 +18,8 @@ SRC =  so_long.c render_map.c		\
 		load_link.c load_images.c	\
 		initialize_structs.c		\
 		get_coordinates.c			\
-		directions.c
+		directions.c				\
+		map_check.c
 OBJ = $(SRC:.c=.o)
 
 MAGENTA := \033[35;1m
