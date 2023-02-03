@@ -6,37 +6,35 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 08:20:45 by arommers      #+#    #+#                 */
-/*   Updated: 2022/10/26 08:44:05 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/03 12:58:45 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h> 
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	int		i;
 	int		j;
-	int		len_s1;
-	int		len_s2;
 	char	*new;
 
 	i = 0;
 	j = 0;
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen (s2);
-	new = (char *)malloc(sizeof(char) * (len_s1 + len_s2 + 1));
-	if (s1 == 0 || s2 == 0)
-		return (NULL);
+	if (!s1)
+		s1 = gnl_calloc(1, 1);
+	if (!s1 || !s2)
+		return (free(s1), NULL);
+	new = (char *)malloc(sizeof(char) * (gnl_strlen(s1) + gnl_strlen(s2) + 1));
 	if (!new)
-		return (NULL);
-	while (i < len_s1)
+		return (free(s1), NULL);
+	while (s1[i])
 	{
 		new[i] = s1[i];
 		i++;
 	}
-	while (j < len_s2)
+	while (s2[j])
 		new[i++] = s2[j++];
 	new[i] = '\0';
-	return (new);
+	return (free(s1), new);
 }

@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 11:49:11 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/02 17:39:08 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/03 11:58:45 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	check_game_status(t_game *game)
 		if (game->link_x == game->exit_x && game->link_y == game->exit_y)
 		{
 			mlx_close_window(game->mlx);
-			printf("YOU DID IT MOTHERFUCKER!!!!\nTHEY SAID IT COULDN'T BE DONE,\nBUT YOU SHOWED EM ALL WRONG\n");
+			printf("YOU DID IT MOTHERFUCKER!!!!\nTHEY SAID IT COULDN'T BE DONE,\nBUT LOOK AT US NOW\n");
 		}
 	}
 }
@@ -145,8 +145,8 @@ void	move_hook(mlx_key_data_t keydata, void *data)
 	t_game	*game;
 
 	game = (t_game *) data;
-	// if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
-	// 	close_window(game);
+	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
+		mlx_close_window(game->mlx);
 	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
 		move_player(game, 'y', 'u');
 	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)

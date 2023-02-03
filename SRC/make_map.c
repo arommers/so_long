@@ -52,12 +52,12 @@ char	*read_map(char *map)
 		if (line)
 		{
 			line_joined = ft_strjoin(line_joined, line);
+			free(line);
 		}
 		else
 			break ;
 	}
 	close (fd);
-	free(line);
 	return (line_joined);
 }
 
@@ -83,7 +83,6 @@ t_game	*initialize_game_struct(char **grid)
 	game->grid = grid;
 	game->steps = 0;
 	game->rupees = count_rupees(game);
-	printf("total rupees at start: %zu\n", game->rupees);
 	game->link_x = get_link_pos(game, 'x');
 	game->link_y = get_link_pos(game, 'y');
 	game->exit_x = get_exit_pos (game, 'x');
