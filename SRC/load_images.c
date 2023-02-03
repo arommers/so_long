@@ -81,23 +81,3 @@ t_img	*load_exit_open(mlx_t *mlx, t_img *texture)
 	mlx_delete_texture(exit);
 	return (texture);
 }
-
-t_img	*initialize_img_struct(mlx_t *mlx)
-{
-	t_img	*assets;
-
-	assets = (t_img *)ft_calloc(1, sizeof(t_img));
-	if (!assets)
-		return (NULL);
-	assets = load_grass_texture(mlx, assets);
-	assets = load_bush_texture(mlx, assets);
-	assets = load_rupee_texture(mlx, assets);
-	assets = load_link_texture(mlx, assets);
-	assets = load_link_up(mlx, assets);
-	assets = load_link_down(mlx, assets);
-	assets = load_link_right(mlx, assets);
-	assets = load_link_left(mlx, assets);
-	assets = load_exit_closed(mlx, assets);
-	assets = load_exit_open(mlx, assets);
-	return (assets);
-}

@@ -13,7 +13,12 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = so_long.a
-SRC =  so_long.c make_map.c make_images.c coordinates.c moves.c link.c
+SRC =  so_long.c render_map.c		\
+		parse_map.c moves.c			\
+		load_link.c load_images.c	\
+		initialize_structs.c		\
+		get_coordinates.c			\
+		directions.c
 OBJ = $(SRC:.c=.o)
 
 MAGENTA := \033[35;1m
