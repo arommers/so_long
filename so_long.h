@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/02 17:11:27 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/08 14:55:47 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <fcntl.h>
 # include <memory.h>
 
-#define PIXELS 64
+# define PIXELS 64
 
 typedef struct s_img {
 	mlx_image_t		*bush;
@@ -90,6 +90,12 @@ void	move_hook(mlx_key_data_t keydata, void *data);
 
 void	error_message(char *msg);
 void	check_map_shape(char **grid);
+void	check_map_content(char *map);
+void	check_invalid_content(char *map);
+void	check_walls(t_game *game);
+void	check_horo(t_game *game);
+void	check_vert(t_game *game);
+
 
 void	check_game_status(t_game *game);
 

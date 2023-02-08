@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   coordinates.c                                      :+:    :+:            */
+/*   initialize_structs.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 14:53:00 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/02 16:44:06 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/08 14:34:15 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ t_game	*initialize_data(char *map)
 	t_game	*data;
 
 	map_as_str = read_map(map);
+	check_map_content(map_as_str);
 	map_as_array = ft_split(map_as_str, '\n');
 	check_map_shape(map_as_array);
 	data = initialize_game_struct(map_as_array);
+	check_walls(data);
 	free (map_as_str);
 	return (data);
 }

@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/16 11:51:33 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/03 14:06:38 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/08 11:36:48 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	fill_background(t_game *data)
 		x = 0;
 		while (x < data->width)
 		{
-			mlx_image_to_window(data->mlx, data->img->grass, x * PIXELS, y * PIXELS);
+			mlx_image_to_window(data->mlx, data->img->grass,
+				x * PIXELS, y * PIXELS);
 			x++;
 		}
 		y++;
