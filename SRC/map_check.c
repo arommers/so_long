@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/08 15:03:48 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/08 16:05:12 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,23 @@ void	check_map_content(char *map)
 	int	player;
 	int	exit;
 	int	rupees;
+	int	i;
 
 	player = 0;
 	exit = 0;
 	rupees = 0;
-	while (*map)
+	i = 0;
+	while (map[i++])
 	{
 
-		if (*map == 'P')
+		if (map[i] == 'P')
 			player++;
-		if (*map == 'E')
+		if (map[i] == 'E')
 			exit++;
-		if (*map == 'C')
+		if (map[i] == 'C')
 			rupees++;
 		else
 			check_invalid_content(map);
-		map++;
 	}
 	if (player != 1 || exit != 1 || rupees < 1)
 	{
@@ -90,6 +91,19 @@ void	check_walls(t_game *game)
 {
 	check_horo(game);
 	check_vert(game);
+}
+
+void	check_empty_lines(char *map)
+{
+	size_t	i;
+
+	i = 0;
+	while (map[i])
+	{
+		if (map[i] == '\n' && (map[i + 1]) == '\n')
+			error_message("Map contains empty lines");
+		i++;
+	}
 }
 
 void	check_map_shape(char **grid)

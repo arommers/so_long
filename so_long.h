@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/08 14:55:47 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/08 15:51:05 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	move_hook(mlx_key_data_t keydata, void *data);
 
 void	error_message(char *msg);
 void	check_map_shape(char **grid);
+void	check_empty_lines(char *map);
 void	check_map_content(char *map);
 void	check_invalid_content(char *map);
 void	check_walls(t_game *game);
