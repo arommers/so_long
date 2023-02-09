@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/08 15:51:05 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/09 15:05:47 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,9 @@ void	check_invalid_content(char *map);
 void	check_walls(t_game *game);
 void	check_horo(t_game *game);
 void	check_vert(t_game *game);
-
+void	check_file_extension(char *file);
+void	flood_fill(t_game *game);
+int		check_path(t_game *temp, size_t x, size_t y, size_t C);
 
 void	check_game_status(t_game *game);
 

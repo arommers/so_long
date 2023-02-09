@@ -6,7 +6,7 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/13 13:44:52 by arommers      #+#    #+#                  #
-#    Updated: 2023/02/08 11:55:17 by arommers      ########   odam.nl          #
+#    Updated: 2023/02/09 13:12:45 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRC = ./SRC/so_long.c ./SRC/render_map.c	\
 	./SRC/load_link.c ./SRC/load_images.c	\
 	./SRC/initialize_structs.c 				\
 	./SRC/get_coordinates.c					\
-	./SRC/directions.c ./SRC/map_check.c
+	./SRC/directions.c ./SRC/map_check.c	\
+	./SRC/path_checker.c
 OBJ = $(SRC:.c=.o)
 
 BOLD    := \033[1m

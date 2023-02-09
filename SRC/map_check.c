@@ -6,12 +6,11 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/08 16:05:12 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/09 11:04:01 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
 
 void	error_message(char *msg)
 {
@@ -33,7 +32,6 @@ void	check_map_content(char *map)
 	i = 0;
 	while (map[i++])
 	{
-
 		if (map[i] == 'P')
 			player++;
 		if (map[i] == 'E')
@@ -104,6 +102,15 @@ void	check_empty_lines(char *map)
 			error_message("Map contains empty lines");
 		i++;
 	}
+}
+
+void	check_file_extension(char *file)
+{
+	size_t	len;
+
+	len = ft_strlen(file);
+	if (len < 4 || ft_strncmp(file + len - 4, ".ber", 4))
+		error_message("Please provide a .ber file");
 }
 
 void	check_map_shape(char **grid)

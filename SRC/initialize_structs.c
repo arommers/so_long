@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 14:53:00 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/08 15:54:19 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/09 13:09:03 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ t_game	*initialize_data(char *map)
 	map_as_array = ft_split(map_as_str, '\n');
 	check_map_shape(map_as_array);
 	data = initialize_game_struct(map_as_array);
+	flood_fill(data);
 	check_walls(data);
 	free (map_as_str);
 	return (data);
