@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/09 15:05:47 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/10 15:00:04 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ t_img	*load_link_left(mlx_t *mlx, t_img *texture);
 t_img	*load_exit_closed(mlx_t *mlx, t_img *texture);
 t_img	*load_exit_open(mlx_t *mlx, t_img *texture);
 t_img	*initialize_img_struct(mlx_t *mlx);
+void	image_select(t_game *data, size_t y, size_t x);
 void	load_link(t_game *game, char dir, size_t x, size_t y);
 
 // move functions
@@ -90,6 +91,7 @@ void	move_hook(mlx_key_data_t keydata, void *data);
 
 void	error_message(char *msg);
 void	check_map_shape(char **grid);
+void	check_empty(char *map);
 void	check_empty_lines(char *map);
 void	check_map_content(char *map);
 void	check_invalid_content(char *map);
@@ -98,8 +100,9 @@ void	check_horo(t_game *game);
 void	check_vert(t_game *game);
 void	check_file_extension(char *file);
 void	flood_fill(t_game *game);
-int		check_path(t_game *temp, size_t x, size_t y, size_t C);
+int		check_path(t_game *temp, size_t x, size_t y);
 
+void	free_grid(char **grid, size_t height);
 void	check_game_status(t_game *game);
 
 #endif

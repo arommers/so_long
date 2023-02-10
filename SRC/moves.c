@@ -6,38 +6,26 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 11:49:11 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/03 14:06:38 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/10 16:26:36 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../so_long.h"
 
-void	check_game_status(t_game *game)
-{
-	printf("steps: %zu\n", game->steps);
-	if (game->collected == game->rupees)
-	{
-		mlx_image_to_window(game->mlx, game->img->exit_open,
-			game->exit_x * PIXELS, game->exit_y * PIXELS);
-		game->grid[game->exit_y][game->exit_x] = '0';
-		if (game->link_x == game->exit_x && game->link_y == game->exit_y)
-		{
-			mlx_close_window(game->mlx);
-			printf("YOU DID IT MOTHERFUCKER!!!!\nTHEY SAID IT COULDN'T BE DONE,\nBUT LOOK AT US NOW\n");
-		}
-	}
-}
-
 void	load_link(t_game *game, char dir, size_t x, size_t y)
 {
 	if (dir == 'u')
-		mlx_image_to_window(game->mlx, game->img->link_up, x, y);
+		if (mlx_image_to_window(game->mlx, game->img->link_up, x, y) < 0)
+			error_message("Failed to put image to window");
 	if (dir == 'd')
-		mlx_image_to_window(game->mlx, game->img->link_down, x, y);
+		if (mlx_image_to_window(game->mlx, game->img->link_down, x, y) < 0)
+			error_message("Failed to put image to window");
 	if (dir == 'r')
-		mlx_image_to_window(game->mlx, game->img->link_right, x, y);
+		if (mlx_image_to_window(game->mlx, game->img->link_right, x, y) < 0)
+			error_message("Failed to put image to window");
 	if (dir == 'l')
-		mlx_image_to_window(game->mlx, game->img->link_left, x, y);
+		if (mlx_image_to_window(game->mlx, game->img->link_left, x, y) < 0)
+			error_message("Failed to put image to window");
 }
 
 void	move_select(t_game *game, char line, char dir)
@@ -65,7 +53,8 @@ void	move_player(t_game *game, char line, char dir)
 
 	x = game->link_x * PIXELS;
 	y = game->link_y * PIXELS;
-	mlx_image_to_window (game->mlx, game->img->grass, x, y);
+	if (mlx_image_to_window (game->mlx, game->img->grass, x, y) < 0)
+		error_message("Failed to put image to window");
 	move_select(game, line, dir);
 	x = game->link_x * PIXELS;
 	y = game->link_y * PIXELS;

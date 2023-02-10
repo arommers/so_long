@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/09 10:35:45 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/10 13:37:19 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ int	main(int argc, char **argv)
 	mlx_key_hook(game->mlx, &move_hook, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
-	// system("leaks so_long");
 	return (EXIT_SUCCESS);
 }

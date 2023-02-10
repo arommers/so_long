@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/03 14:06:38 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/10 13:42:20 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ size_t	count_rupees(t_game *game)
 		{
 			if (game->grid[y][x] == 'C')
 			{
-				i += 1;
+				i++;
 			}
 			x++;
 		}

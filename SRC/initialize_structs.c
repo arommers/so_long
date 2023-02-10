@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 14:53:00 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/09 13:09:03 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/10 14:29:38 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_game	*initialize_game_struct(char **grid)
 
 	game = (t_game *)ft_calloc(1, sizeof(t_game));
 	if (!game)
-		return (NULL);
+		error_message("struct memory allocation failed");
 	game->width = ft_strlen(grid[0]);
 	game->height = row_count(grid);
 	game->grid = grid;
@@ -38,6 +38,7 @@ t_game	*initialize_data(char *map)
 	t_game	*data;
 
 	map_as_str = read_map(map);
+	check_empty(map_as_str);
 	check_map_content(map_as_str);
 	check_empty_lines(map_as_str);
 	map_as_array = ft_split(map_as_str, '\n');

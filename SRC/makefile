@@ -6,7 +6,7 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/14 11:40:10 by arommers      #+#    #+#                  #
-#    Updated: 2023/02/09 13:13:17 by arommers      ########   odam.nl          #
+#    Updated: 2023/02/10 16:15:52 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,10 @@ SRC =  so_long.c render_map.c		\
 		initialize_structs.c		\
 		get_coordinates.c			\
 		directions.c				\
-		map_check.c					\
-		path_checker.c
+		map_check_1.c				\
+		map_check_2.c				\
+		miscellaneous.c				\
+		path_checker.c				
 OBJ = $(SRC:.c=.o)
 
 MAGENTA := \033[35;1m
