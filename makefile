@@ -6,7 +6,7 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/13 13:44:52 by arommers      #+#    #+#                  #
-#    Updated: 2023/02/10 16:15:20 by arommers      ########   odam.nl          #
+#    Updated: 2023/02/13 20:29:52 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRC = ./SRC/so_long.c ./SRC/render_map.c		\
 	./SRC/get_coordinates.c						\
 	./SRC/directions.c ./SRC/map_check_1.c		\
 	./SRC/map_check_2.c ./SRC/miscellaneous.c	\
-	./SRC/path_checker.c						
+	./SRC/path_checker.c						\
+	./SRC/enemy.c				
 OBJ = $(SRC:.c=.o)
 
 BOLD    := \033[1m

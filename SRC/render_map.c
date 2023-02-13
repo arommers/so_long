@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/16 11:51:33 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/10 15:52:32 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/13 20:15:12 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ void	image_select(t_game *data, size_t y, size_t x)
 			error_message("Failed to put image to window");
 	if (data->grid[y][x] == 'E')
 		if (mlx_image_to_window(data->mlx, data->img->exit_closed,
+				x * PIXELS, y * PIXELS) < 0)
+			error_message("Failed to put image to window");
+	if (data->grid[y][x] == 'X')
+		if (mlx_image_to_window(data->mlx, data->img->enemy,
 				x * PIXELS, y * PIXELS) < 0)
 			error_message("Failed to put image to window");
 }

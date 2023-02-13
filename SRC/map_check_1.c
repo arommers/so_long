@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/10 16:25:30 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/13 15:12:52 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	check_invalid_content(char *map)
 {
-	if (!(ft_strchr("PEC01\n", *map)))
+	if (!(ft_strchr("PEC01X\n", *map)))
 	{
 		error_message("Map contains invalid characters");
 	}

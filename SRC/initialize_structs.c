@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 14:53:00 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/10 14:29:38 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/13 18:25:51 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ t_img	*initialize_img_struct(mlx_t *mlx)
 	assets = load_link_left(mlx, assets);
 	assets = load_exit_closed(mlx, assets);
 	assets = load_exit_open(mlx, assets);
+	assets = load_enemy_texture(mlx, assets);
 	return (assets);
 }

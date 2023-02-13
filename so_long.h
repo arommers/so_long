@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/10 15:00:04 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/13 20:27:35 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <memory.h>
+# include <time.h>
 
 # define PIXELS 64
+# define EMOVE 40
 
 typedef struct s_img {
 	mlx_image_t		*bush;
@@ -33,7 +35,8 @@ typedef struct s_img {
 	mlx_image_t		*link_right;
 	mlx_image_t		*link_left;
 	mlx_image_t		*exit_closed;
-	mlx_image_t		*exit_open;	
+	mlx_image_t		*exit_open;
+	mlx_image_t		*enemy;	
 }	t_img;
 
 typedef struct s_game {
@@ -72,6 +75,7 @@ t_img	*load_link_up(mlx_t *mlx, t_img *texture);
 t_img	*load_link_down(mlx_t *mlx, t_img *texture);
 t_img	*load_link_right(mlx_t *mlx, t_img *texture);
 t_img	*load_link_left(mlx_t *mlx, t_img *texture);
+t_img	*load_enemy_texture(mlx_t *mlx, t_img *texture);
 t_img	*load_exit_closed(mlx_t *mlx, t_img *texture);
 t_img	*load_exit_open(mlx_t *mlx, t_img *texture);
 t_img	*initialize_img_struct(mlx_t *mlx);
@@ -102,6 +106,7 @@ void	check_file_extension(char *file);
 void	flood_fill(t_game *game);
 int		check_path(t_game *temp, size_t x, size_t y);
 
+void	enemy_patrol(void *temp);
 void	free_grid(char **grid, size_t height);
 void	check_game_status(t_game *game);
 
