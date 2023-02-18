@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/13 20:27:35 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/18 16:01:36 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,32 +26,36 @@
 # define EMOVE 40
 
 typedef struct s_img {
-	mlx_image_t		*bush;
-	mlx_image_t		*grass;
-	mlx_image_t		*rupee;
-	mlx_image_t		*link;
-	mlx_image_t		*link_up;
-	mlx_image_t		*link_down;
-	mlx_image_t		*link_right;
-	mlx_image_t		*link_left;
-	mlx_image_t		*exit_closed;
-	mlx_image_t		*exit_open;
-	mlx_image_t		*enemy;	
+	mlx_image_t			*bush;
+	mlx_image_t			*grass;
+	mlx_image_t			*rupee;
+	mlx_image_t			*link;
+	mlx_image_t			*exit_closed;
+	mlx_image_t			*exit_open;
+	mlx_image_t			*enemy;
+	mlx_image_t			*moves_print;
+	mlx_image_t			*moves_nbr;
+	mlx_image_t			*rupee_nbr;
+	mlx_image_t			*rupee_2;
 }	t_img;
 
 typedef struct s_game {
-	char	**grid;
-	size_t	width;
-	size_t	height;
-	size_t	rupees;
-	size_t	steps;
-	size_t	collected;
-	size_t	link_x;
-	size_t	link_y;
-	size_t	exit_x;
-	size_t	exit_y;
-	t_img	*img;
-	mlx_t	*mlx;
+	char			**grid;
+	size_t			width;
+	size_t			height;
+	size_t			rupees;
+	size_t			steps;
+	size_t			collected;
+	size_t			link_x;
+	size_t			link_y;
+	size_t			exit_x;
+	size_t			exit_y;
+	mlx_texture_t	*link_up;
+	mlx_texture_t	*link_down;
+	mlx_texture_t	*link_left;
+	mlx_texture_t	*link_right;
+	t_img			*img;
+	mlx_t			*mlx;
 }	t_game;
 
 //make map fucntions
@@ -80,7 +84,7 @@ t_img	*load_exit_closed(mlx_t *mlx, t_img *texture);
 t_img	*load_exit_open(mlx_t *mlx, t_img *texture);
 t_img	*initialize_img_struct(mlx_t *mlx);
 void	image_select(t_game *data, size_t y, size_t x);
-void	load_link(t_game *game, char dir, size_t x, size_t y);
+void	load_link(t_game *game, char dir);
 
 // move functions
 void	move_player(t_game *game, char line, char dir);
@@ -106,6 +110,12 @@ void	check_file_extension(char *file);
 void	flood_fill(t_game *game);
 int		check_path(t_game *temp, size_t x, size_t y);
 
+//Miscellaneous
+
+void	string_to_screen(t_game *game);
+void	print_moves(t_game *game);
+void	print_rupees(t_game *game);
+void	remove_rupee(t_game *game, int y, int x);
 void	enemy_patrol(void *temp);
 void	free_grid(char **grid, size_t height);
 void	check_game_status(t_game *game);

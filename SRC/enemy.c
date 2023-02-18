@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/13 14:55:42 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/13 20:31:20 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/18 12:26:29 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ typedef struct s_var {
 	int				index_y;
 }	t_var;
 
-void check_status(const t_game *game)
+void	check_status(const t_game *game)
 {
-	if (game->link_x * PIXELS == (size_t)game->img->enemy->instances->x && game->link_y * PIXELS == (size_t)game->img->enemy->instances-> y)
+	if (game->link_x * PIXELS == (size_t)game->img->enemy->instances->x
+		&& game->link_y * PIXELS == (size_t)game->img->enemy->instances-> y)
 	{
 		mlx_close_window(game->mlx);
 	}

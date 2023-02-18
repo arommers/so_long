@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/10 16:16:40 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/18 15:06:11 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	error_message(char *msg)
 
 void	check_game_status(t_game *game)
 {
-	printf("steps: %zu\n", game->steps);
+	print_moves(game);
 	if (game->collected == game->rupees)
 	{
 		if (mlx_image_to_window(game->mlx, game->img->exit_open,

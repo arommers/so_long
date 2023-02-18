@@ -6,26 +6,22 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 11:49:11 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/10 16:26:36 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/18 11:37:04 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../so_long.h"
 
-void	load_link(t_game *game, char dir, size_t x, size_t y)
+void	load_link(t_game *game, char dir)
 {
 	if (dir == 'u')
-		if (mlx_image_to_window(game->mlx, game->img->link_up, x, y) < 0)
-			error_message("Failed to put image to window");
+		mlx_draw_texture(game->img->link, game->link_up, 0, 0);
 	if (dir == 'd')
-		if (mlx_image_to_window(game->mlx, game->img->link_down, x, y) < 0)
-			error_message("Failed to put image to window");
+		mlx_draw_texture(game->img->link, game->link_down, 0, 0);
 	if (dir == 'r')
-		if (mlx_image_to_window(game->mlx, game->img->link_right, x, y) < 0)
-			error_message("Failed to put image to window");
+		mlx_draw_texture(game->img->link, game->link_right, 0, 0);
 	if (dir == 'l')
-		if (mlx_image_to_window(game->mlx, game->img->link_left, x, y) < 0)
-			error_message("Failed to put image to window");
+		mlx_draw_texture(game->img->link, game->link_left, 0, 0);
 }
 
 void	move_select(t_game *game, char line, char dir)
@@ -48,17 +44,17 @@ void	move_select(t_game *game, char line, char dir)
 
 void	move_player(t_game *game, char line, char dir)
 {
-	size_t	x;
-	size_t	y;
+	uint32_t	x;
+	uint32_t	y;
 
-	x = game->link_x * PIXELS;
-	y = game->link_y * PIXELS;
-	if (mlx_image_to_window (game->mlx, game->img->grass, x, y) < 0)
-		error_message("Failed to put image to window");
+	// x = game->link_x * PIXELS;
+	// y = game->link_y * PIXELS;
+	// // if (mlx_image_to_window (game->mlx, game->img->grass, x, y) < 0)
+	// // 	error_message("Failed to put image to window");
 	move_select(game, line, dir);
-	x = game->link_x * PIXELS;
-	y = game->link_y * PIXELS;
-	load_link(game, dir, x, y);
+	x = game->img->link->instances[0].x;
+	y = game->img->link->instances[0].y;
+	load_link(game, dir);
 }
 
 void	move_hook(mlx_key_data_t keydata, void *data)

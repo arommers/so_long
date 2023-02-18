@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 14:53:00 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/13 18:25:51 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/18 14:36:44 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ t_game	*initialize_game_struct(char **grid)
 	game->link_y = get_link_pos(game, 'y');
 	game->exit_x = get_exit_pos (game, 'x');
 	game->exit_y = get_exit_pos (game, 'y');
+	game->link_up = mlx_load_png("./Sprites/Link_Up.png");
+	game->link_down = mlx_load_png("./Sprites/Link_Down.png");
+	game->link_left = mlx_load_png("./Sprites/Link_Left.png");
+	game->link_right = mlx_load_png("./Sprites/Link_Right.png");
 	return (game);
 }
 
@@ -61,10 +65,6 @@ t_img	*initialize_img_struct(mlx_t *mlx)
 	assets = load_bush_texture(mlx, assets);
 	assets = load_rupee_texture(mlx, assets);
 	assets = load_link_texture(mlx, assets);
-	assets = load_link_up(mlx, assets);
-	assets = load_link_down(mlx, assets);
-	assets = load_link_right(mlx, assets);
-	assets = load_link_left(mlx, assets);
 	assets = load_exit_closed(mlx, assets);
 	assets = load_exit_open(mlx, assets);
 	assets = load_enemy_texture(mlx, assets);
