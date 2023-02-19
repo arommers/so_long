@@ -6,7 +6,7 @@
 #    By: W2Wizard <w2.wizzard@gmail.com>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/26 21:32:00 by W2Wizard      #+#    #+#                  #
-#    Updated: 2022/07/05 14:55:05 by jobvan-d      ########   odam.nl          #
+#    Updated: 2023/02/19 16:14:51 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,6 @@ $(SRC_DIR)\mlx_%_shader.c: $(SHADER_DIR)\default.%
 	@.\tools\compile_shader.bat $< > $@
 
 clean:
-	@echo Cleaning
 	@del /F /Q $(OBJS) $(SHDR) $(WINSTFU)
 
 fclean: clean

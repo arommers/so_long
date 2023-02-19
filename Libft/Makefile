@@ -6,7 +6,7 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/10 14:07:45 by arommers      #+#    #+#                  #
-#    Updated: 2023/02/19 12:33:03 by arommers      ########   odam.nl          #
+#    Updated: 2023/02/19 15:39:50 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,23 +42,33 @@ SRC =  ft_split.c ft_itoa.c 			\
 OBJ = $(SRC:%.c=%.o)
 
 #colours
-PINK	= \x1b[35m
+BOLD    := \033[1m
+BLACK   := \033[30;1m
+RED     := \033[31;1m
+GREEN   := \033[32;1m
+YELLOW  := \033[33;1m
+BLUE    := \033[34;1m
+MAGENTA := \033[35;1m
+CYAN    := \033[36;1m
+WHITE   := \033[37;1m
 RESET	= \x1b[0m
-GREEN	= \x1b[32m
-BLUE	= \x1b[34m
 
 all: $(NAME)
 
 start:
-	@echo "$(PINK)------------------------------\n	Starting $(PROJECT)\n------------------------------$(RESET)"
-
+	@echo "$(MAGENTA)-------------------------------------------"
+	@echo "	     Starting $(PROJECT)"
+	@echo "-------------------------------------------$(RESET)"
+	
 $(NAME): start $(OBJ)
 	@echo "Compiled with $(BLUE)$(CFLAGS)$(RESET)"
 	@ar -rcs $@ $(OBJ)
-	@echo "$(PINK)-------------------------------------------\n	$(NAME) = NOW READY FOR USE!\n-------------------------------------------$(RESET)"
-
+	@echo "$(MAGENTA)-------------------------------------------"
+	@echo "	$(NAME) = NOW READY FOR USE!"
+	@echo "-------------------------------------------$(RESET)"
+	
 %.o: %.c
-	@echo "Compilation Done $(PINK) $^ $(RESET)"
+	@echo "Compilation Done $(MAGENTA) $^ $(RESET)"
 	@$(CC) $(CFLAGS) -c -o $@ $^
 
 clean:
