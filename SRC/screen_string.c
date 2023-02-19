@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/18 14:46:36 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/18 16:04:09 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/19 12:23:02 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	print_rupees(t_game *game)
 {
 	char	*string;
 
-	string = ft_itoa(game->collected);
+	string = ft_itoa(game->collected + 1);
 	mlx_delete_image(game->mlx, game->img->rupee_nbr);
 	game->img->rupee_nbr = mlx_put_string(game->mlx, string,
 			175, game->height * 64 -44);

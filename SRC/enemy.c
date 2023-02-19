@@ -6,42 +6,36 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/13 14:55:42 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/18 12:26:29 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/19 14:18:39 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-typedef struct s_var {
-	int				ran_x;
-	int				ran_y;
-	int				*x;
-	int				*y;
-	int				index_x;
-	int				index_y;
-}	t_var;
-
-void	check_status(const t_game *game)
+static void	check_status(const t_game *game)
 {
-	if (game->link_x * PIXELS == (size_t)game->img->enemy->instances->x
-		&& game->link_y * PIXELS == (size_t)game->img->enemy->instances-> y)
+	int	count;
+
+	count = 0;
+	while (count < game->img->enemy->count)
 	{
-		mlx_close_window(game->mlx);
+		if (game->link_x * PIXELS
+			== (size_t)game->img->enemy->instances[count].x
+			&& game->link_y * PIXELS
+			== (size_t)game->img->enemy->instances[count].y)
+		{
+			mlx_close_window(game->mlx);
+		}
+		count++;
 	}
 }
 
-void	enemy_patrol(void *temp)
+static void	move_all(const t_game *game, int count)
 {
-	const t_game	*game = temp;
 	t_var			var;
-	static int		i;
 
-	i++;
-	check_status(game);
-	if (i < EMOVE)
-		return ;
-	var.x = &game->img->enemy->instances->x;
-	var.y = &game->img->enemy->instances->y;
+	var.x = &game->img->enemy->instances[count].x;
+	var.y = &game->img->enemy->instances[count].y;
 	var.ran_x = (rand() % 3 - 1) * 64;
 	var.ran_y = (rand() % 3 - 1) * 64;
 	var.index_x = *var.x + var.ran_x;
@@ -55,6 +49,23 @@ void	enemy_patrol(void *temp)
 	{
 			*var.x += var.ran_x;
 			*var.y += var.ran_y;
+	}
+}
+
+void	enemy_patrol(void *temp)
+{
+	const t_game	*game = temp;
+	int				count;
+	static int		i;
+
+	count = 0;
+	check_status(game);
+	if (i++ < EMOVE)
+		return ;
+	while (count < game->img->enemy->count)
+	{
+		move_all (game, count);
+		count++;
 	}
 	i = 0;
 }

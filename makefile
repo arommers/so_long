@@ -6,7 +6,7 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/13 13:44:52 by arommers      #+#    #+#                  #
-#    Updated: 2023/02/18 15:04:39 by arommers      ########   odam.nl          #
+#    Updated: 2023/02/19 12:34:43 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,6 @@ clean:
 	@$(MAKE) clean -C ./MLX42
 	@$(MAKE) clean -C ./SRC
 	@rm -f $(OBJ)
-	@echo "Cleaning Done $(GREEN) $@ $(PROJECT) $(RESET)"
 
 fclean: clean
 	@$(MAKE) fclean -C ./Libft

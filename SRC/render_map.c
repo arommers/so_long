@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/16 11:51:33 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/17 18:18:58 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/19 12:30:06 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,6 @@ void	image_select(t_game *data, size_t y, size_t x)
 		if (mlx_image_to_window(data->mlx, data->img->exit_closed,
 				x * PIXELS, y * PIXELS) < 0)
 			error_message("Failed to put image to window");
-	if (data->grid[y][x] == 'X')
-		if (mlx_image_to_window(data->mlx, data->img->enemy,
-				x * PIXELS, y * PIXELS) < 0)
-			error_message("Failed to put image to window");
 }
 
 void	fill_background(t_game *data)
@@ -54,6 +50,28 @@ void	fill_background(t_game *data)
 			if (mlx_image_to_window(data->mlx, data->img->grass,
 					x * PIXELS, y * PIXELS) < 0)
 				error_message("Failed to put image to window");
+			x++;
+		}
+		y++;
+	}
+}
+
+void	put_enemies(t_game *data)
+{
+	size_t		x;
+	size_t		y;
+
+	x = 0;
+	y = 0;
+	while (y < data->height)
+	{
+		x = 0;
+		while (x < data->width)
+		{
+			if (data->grid[y][x] == 'X')
+				if (mlx_image_to_window(data->mlx, data->img->enemy,
+						x * PIXELS, y * PIXELS) < 0)
+					error_message("Failed to put image to window");
 			x++;
 		}
 		y++;

@@ -6,7 +6,7 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/10 14:07:45 by arommers      #+#    #+#                  #
-#    Updated: 2023/02/10 16:23:07 by arommers      ########   odam.nl          #
+#    Updated: 2023/02/19 12:33:03 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,12 +62,10 @@ $(NAME): start $(OBJ)
 	@$(CC) $(CFLAGS) -c -o $@ $^
 
 clean:
-	@echo "Cleaning Done $(GREEN) $@ $(PROJECT) $(RESET)"
 	@rm -f $(OBJ)
 	
 
 fclean: clean
-	@echo "Cleaning Done $(GREEN) $@ $(PROJECT) $(RESET)"
 	@rm -f $(NAME)
 
 re: fclean all
