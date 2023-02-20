@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/19 13:41:35 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/20 09:33:50 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <time.h>
 
 # define PIXELS 64
-# define EMOVE 40
+# define EMOVE 30
 
 typedef struct s_var {
 	int				ran_x;

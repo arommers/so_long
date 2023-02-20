@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/13 14:55:42 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/19 14:18:39 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/20 10:53:38 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ static void	check_status(const t_game *game)
 			== (size_t)game->img->enemy->instances[count].y)
 		{
 			mlx_close_window(game->mlx);
+			ft_printf ("Ow no! Link got killed by a ghost 😱\n");
+			ft_printf ("You managed to get %zu rupees though.\n",
+				game->collected);
+			ft_printf ("Good job!\n");
 		}
 		count++;
 	}

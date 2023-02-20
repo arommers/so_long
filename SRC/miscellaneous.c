@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/18 15:06:11 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/20 10:54:42 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ void	check_game_status(t_game *game)
 		if (game->link_x == game->exit_x && game->link_y == game->exit_y)
 		{
 			mlx_close_window(game->mlx);
-			printf("Congratulations!\nYou made link rich!\n");
-			printf("He can now sleep in his hole in the ground\n");
+			ft_printf("Congratulations!\n");
+			ft_printf("You made link rich! 💰💰💰\n");
+			ft_printf("He can now sleep in his hole in the ground\n");
+			ft_printf("and think about all the stuff he is gonna buy.\n");
 		}
 	}
 }
