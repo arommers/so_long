@@ -6,15 +6,15 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/13 15:12:52 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/20 16:00:49 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	check_invalid_content(char *map)
+void	check_invalid_content(int i)
 {
-	if (!(ft_strchr("PEC01X\n", *map)))
+	if (!(ft_strchr("PEC01X\n", i)))
 	{
 		error_message("Map contains invalid characters");
 	}
@@ -40,7 +40,7 @@ void	check_map_content(char *map)
 		if (map[i] == 'C')
 			rupees++;
 		else
-			check_invalid_content(map);
+			check_invalid_content(map[i]);
 	}
 	if (player != 1 || exit != 1 || rupees < 1)
 	{

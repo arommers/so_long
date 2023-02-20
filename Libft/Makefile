@@ -6,11 +6,11 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/10 14:07:45 by arommers      #+#    #+#                  #
-#    Updated: 2023/02/19 15:39:50 by arommers      ########   odam.nl          #
+#    Updated: 2023/02/20 16:29:06 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-PROJECT = Libft
+PROJECT = So Long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
@@ -37,7 +37,11 @@ SRC =  ft_split.c ft_itoa.c 			\
 		ft_lstadd_back.c ft_lstdelone.c \
 		ft_lstclear.c ft_lstiter.c 		\
 		ft_lstmap.c get_next_line.c		\
-		get_next_line_utils.c
+		get_next_line_utils.c			\
+		ft_printf.c ft_print_hex.c		\
+		ft_print_ptr.c					\
+		ft_print_various.c				\
+		ft_print_unsigned.c
 
 OBJ = $(SRC:%.c=%.o)
 
@@ -56,7 +60,7 @@ RESET	= \x1b[0m
 all: $(NAME)
 
 start:
-	@echo "$(MAGENTA)-------------------------------------------"
+	@echo "$(CYAN)-------------------------------------------"
 	@echo "	     Starting $(PROJECT)"
 	@echo "-------------------------------------------$(RESET)"
 	
@@ -68,8 +72,8 @@ $(NAME): start $(OBJ)
 	@echo "-------------------------------------------$(RESET)"
 	
 %.o: %.c
-	@echo "Compilation Done $(MAGENTA) $^ $(RESET)"
 	@$(CC) $(CFLAGS) -c -o $@ $^
+	@echo "Compiled ✅ $(MAGENTA) $^ $(RESET)"
 
 clean:
 	@rm -f $(OBJ)

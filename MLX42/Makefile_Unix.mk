@@ -6,7 +6,7 @@
 #    By: W2Wizard <w2.wizzard@gmail.com>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/26 21:36:38 by W2Wizard      #+#    #+#                  #
-#    Updated: 2023/02/19 16:15:01 by arommers      ########   odam.nl          #
+#    Updated: 2023/02/20 16:28:17 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,15 +25,17 @@ RESET	:= \033[0m
 #//= Make Rules =//#
 $(NAME): $(OBJS)
 	@ar rc $@ $^
-	@echo "$(GREEN)$(BOLD)Done$(RESET)"
+	@echo "$(YELLOW)-------------------------------------------"
+	@echo "       libmlx42.a = NOW READY FOR USE"
+	@echo "-------------------------------------------$(RESET)"
 
 %.o: %.c $(HDRS)
-	@echo "$(GREEN)$(BOLD)Compiling:$(RESET) $(notdir $<)"
+	@echo "Compiled ✅ $(YELLOW)$(BOLD) $(notdir $<)$(RESET)"
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 
 # Convert shaders to .c files
 $(SRC_DIR)/mlx_%_shader.c: $(SHADER_DIR)/default.%
-	@echo "$(GREEN)$(BOLD)Shader to C: $< -> $@$(RESET)"
+	@echo "$(YELLOW)$(BOLD)Shader to C: $< -> $@$(RESET)"
 	@bash tools/compile_shader.sh $< > $@
 
 clean:

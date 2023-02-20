@@ -6,7 +6,7 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/13 13:44:52 by arommers      #+#    #+#                  #
-#    Updated: 2023/02/19 16:34:01 by arommers      ########   odam.nl          #
+#    Updated: 2023/02/20 16:29:18 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,9 +44,6 @@ RESET	= \x1b[0m
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(MLX42) $(OBJ)	
-	@echo "$(CYAN)-------------------------------------------"
-	@echo "	     Starting $(PROJECT)"
-	@echo "-------------------------------------------$(RESET)"
 	@echo "Compiled with $(BLUE)$(CFLAGS)$(RESET)"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(MLX42) $(MLX42FLAGS)
 	@echo "$(CYAN)-------------------------------------------"
@@ -60,7 +57,7 @@ $(MLX42):
 	@$(MAKE) -C ./MLX42
 
 %.o: %.c
-	@echo "Compilation Done $(CYAN) $^ $(RESET)"
+	@echo "Compiled ✅ $(CYAN) $^ $(RESET)"
 	@$(CC) $(CFLAGS) -c -o $@ $^
 
 clean:

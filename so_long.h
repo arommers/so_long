@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/19 13:41:35 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/20 16:01:04 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <time.h>
 
 # define PIXELS 64
-# define EMOVE 40
+# define EMOVE 30
 
 typedef struct s_var {
 	int				ran_x;
@@ -112,7 +112,7 @@ void	check_map_shape(char **grid);
 void	check_empty(char *map);
 void	check_empty_lines(char *map);
 void	check_map_content(char *map);
-void	check_invalid_content(char *map);
+void	check_invalid_content(int i);
 void	check_walls(t_game *game);
 void	check_horo(t_game *game);
 void	check_vert(t_game *game);

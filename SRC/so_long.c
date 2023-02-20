@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/19 12:28:21 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/20 10:39:48 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	check_file_extension(argv[1]);
 	game = initialize_data(argv[1]);
 	game->mlx = mlx_init(game->width * PIXELS,
-			game->height * PIXELS, "test", true);
+			game->height * PIXELS, "so_long", false);
 	if (!game->mlx)
 		return (EXIT_FAILURE);
 	images = initialize_img_struct(game->mlx);
@@ -35,6 +35,5 @@ int	main(int argc, char **argv)
 	mlx_loop_hook(game->mlx, &enemy_patrol, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
-	system("leaks so_long");
 	return (EXIT_SUCCESS);
 }

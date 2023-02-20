@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 11:49:11 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/18 11:37:04 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/20 10:07:31 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,7 @@ void	move_select(t_game *game, char line, char dir)
 
 void	move_player(t_game *game, char line, char dir)
 {
-	uint32_t	x;
-	uint32_t	y;
-
-	// x = game->link_x * PIXELS;
-	// y = game->link_y * PIXELS;
-	// // if (mlx_image_to_window (game->mlx, game->img->grass, x, y) < 0)
-	// // 	error_message("Failed to put image to window");
 	move_select(game, line, dir);
-	x = game->img->link->instances[0].x;
-	y = game->img->link->instances[0].y;
 	load_link(game, dir);
 }
 

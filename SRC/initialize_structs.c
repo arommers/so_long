@@ -6,11 +6,27 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 14:53:00 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/18 14:36:44 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/20 15:55:22 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+static void	load_link_textures(t_game *game)
+{
+	game->link_up = mlx_load_png("./Sprites/Link_Up.png");
+	if (!game->link_up)
+		error_message("Problem with loading png");
+	game->link_down = mlx_load_png("./Sprites/Link_Down.png");
+	if (!game->link_down)
+		error_message("Problem with loading png");
+	game->link_left = mlx_load_png("./Sprites/Link_Left.png");
+	if (!game->link_left)
+		error_message("Problem with loading png");
+	game->link_right = mlx_load_png("./Sprites/Link_Right.png");
+	if (!game->link_right)
+		error_message("Problem with loading png");
+}
 
 t_game	*initialize_game_struct(char **grid)
 {
@@ -28,10 +44,7 @@ t_game	*initialize_game_struct(char **grid)
 	game->link_y = get_link_pos(game, 'y');
 	game->exit_x = get_exit_pos (game, 'x');
 	game->exit_y = get_exit_pos (game, 'y');
-	game->link_up = mlx_load_png("./Sprites/Link_Up.png");
-	game->link_down = mlx_load_png("./Sprites/Link_Down.png");
-	game->link_left = mlx_load_png("./Sprites/Link_Left.png");
-	game->link_right = mlx_load_png("./Sprites/Link_Right.png");
+	load_link_textures(game);
 	return (game);
 }
 
@@ -43,13 +56,13 @@ t_game	*initialize_data(char *map)
 
 	map_as_str = read_map(map);
 	check_empty(map_as_str);
-	check_map_content(map_as_str);
 	check_empty_lines(map_as_str);
+	check_map_content(map_as_str);
 	map_as_array = ft_split(map_as_str, '\n');
 	check_map_shape(map_as_array);
 	data = initialize_game_struct(map_as_array);
-	flood_fill(data);
 	check_walls(data);
+	flood_fill(data);
 	free (map_as_str);
 	return (data);
 }
