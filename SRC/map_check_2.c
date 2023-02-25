@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/10 16:25:47 by arommers      ########   odam.nl         */
+/*   Updated: 2023/02/25 14:31:08 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	check_empty_lines(char *map)
 	i = 0;
 	while (map[i])
 	{
-		if (map[i] == '\n' && (map[i + 1]) == '\n')
+		if (map[0] == '\n' || (map[i] == '\n' && (map[i + 1]) == '\n'))
 			error_message("Map contains empty lines");
 		i++;
 	}

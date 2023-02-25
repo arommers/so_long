@@ -6,17 +6,13 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/13 13:44:52 by arommers      #+#    #+#                  #
-<<<<<<< HEAD
-#    Updated: 2023/02/20 16:29:18 by arommers      ########   odam.nl          #
-=======
-#    Updated: 2023/02/20 11:40:35 by arommers      ########   odam.nl          #
->>>>>>> ce9089f755662a2c9e016060319f8e3328477564
+#    Updated: 2023/02/25 14:31:46 by arommers      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 PROJECT = so long
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 MLX42FLAGS = -lglfw3 -framework Cocoa -framework OpenGL -framework IOKit
 NAME = so_long
 LIBFT = ./Libft/libft.a

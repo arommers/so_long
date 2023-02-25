@@ -6,11 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/13 14:55:42 by arommers      #+#    #+#                 */
-<<<<<<< HEAD
 /*   Updated: 2023/02/20 11:57:51 by arommers      ########   odam.nl         */
-=======
-/*   Updated: 2023/02/20 10:53:38 by arommers      ########   odam.nl         */
->>>>>>> ce9089f755662a2c9e016060319f8e3328477564
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +26,7 @@ static void	check_status(const t_game *game)
 		{
 			mlx_close_window(game->mlx);
 			ft_printf ("Ow no! Link got killed by a ghost 😱\n");
-<<<<<<< HEAD
 			ft_printf ("Try again!\n");
-=======
-			ft_printf ("You managed to get %zu rupees though.\n",
-				game->collected);
-			ft_printf ("Good job!\n");
->>>>>>> ce9089f755662a2c9e016060319f8e3328477564
 		}
 		count++;
 	}
