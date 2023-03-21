@@ -6,11 +6,10 @@
 #    By: arommers <arommers@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/10 14:07:45 by arommers      #+#    #+#                  #
-#    Updated: 2023/02/20 16:29:06 by arommers      ########   odam.nl          #
+#    Updated: 2023/03/21 10:21:47 by adri          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-PROJECT = So Long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
@@ -43,42 +42,46 @@ SRC =  ft_split.c ft_itoa.c 			\
 		ft_print_various.c				\
 		ft_print_unsigned.c
 
-OBJ = $(SRC:%.c=%.o)
+OBJ_DIR = obj
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
-#colours
+BLACK   := \033[30m
+RED     := \033[31m
+GREEN   := \033[32m
+YELLOW  := \033[33m
+BLUE 	:= \033[96m
+MAGENTA := \033[38;5;206m
+CYAN    := \033[36m
+WHITE   := \033[37m
+RESET   := \033[0m
 BOLD    := \033[1m
-BLACK   := \033[30;1m
-RED     := \033[31;1m
-GREEN   := \033[32;1m
-YELLOW  := \033[33;1m
-BLUE    := \033[34;1m
-MAGENTA := \033[35;1m
-CYAN    := \033[36;1m
-WHITE   := \033[37;1m
-RESET	= \x1b[0m
+DIM     := \033[2m
+ITALIC  := \033[3m
+UNDER   := \033[4m
+BLINK   := \033[5m
+REVERSE := \033[7m
+HIDDEN  := \033[8m
+PINK 	:= \033[35m
 
 all: $(NAME)
 
-start:
-	@echo "$(CYAN)-------------------------------------------"
-	@echo "	     Starting $(PROJECT)"
-	@echo "-------------------------------------------$(RESET)"
+$(NAME): $(OBJ)
+	@echo "Compiled with $(BLUE)$(BOLD)$(CFLAGS)$(RESET)"
+	@ar -rcs $@ $^
+	@echo "$(PINK)$(BOLD)----------------------------------------"
+	@echo "     $(NAME) = NOW READY FOR USE!"
+	@echo "----------------------------------------$(RESET)"
 	
-$(NAME): start $(OBJ)
-	@echo "Compiled with $(BLUE)$(CFLAGS)$(RESET)"
-	@ar -rcs $@ $(OBJ)
-	@echo "$(MAGENTA)-------------------------------------------"
-	@echo "	$(NAME) = NOW READY FOR USE!"
-	@echo "-------------------------------------------$(RESET)"
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(OBJ_DIR)
+	@echo "Compiled ✅ $(PINK) $(BOLD) $^ $(RESET)"
+	@$(CC) $(CFLAGS) $(INCLUDE) -c -o $@ $^
 	
-%.o: %.c
-	@$(CC) $(CFLAGS) -c -o $@ $^
-	@echo "Compiled ✅ $(MAGENTA) $^ $(RESET)"
 
 clean:
+	@rm -rf $(OBJ_DIR)
 	@rm -f $(OBJ)
 	
-
 fclean: clean
 	@rm -f $(NAME)
 
