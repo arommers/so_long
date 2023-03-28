@@ -1,3 +1,5 @@
+<img src="https://i.imgur.com/HG66CCx.png?raw=true" alt="CODAM" style="max-width: 50%;">
+
 <div align="center">
   <h1>So Long</h1>
   <img src="https://i.imgur.com/Z3sUxUi.gif" alt="Header">
