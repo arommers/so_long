@@ -18,6 +18,8 @@ To handle the window management and all things graphical during our project we w
 <h1>
 </h1>
 
+
+
 <div align="center">
   <img src="https://i.imgur.com/wXlRb9T.gif" alt="Game Screenshot">
 </div>
