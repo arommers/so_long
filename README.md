@@ -1,5 +1,5 @@
 <img src="https://i.imgur.com/HG66CCx.png?raw=true" alt="CODAM" style="max-width: 50%;">
-<div align="center">
+<div>
   <h1>So Long</h1>
 </div>
 
@@ -16,10 +16,18 @@ To handle the window management and all things graphical during our project we w
 <div align="center">
   <img src="https://i.imgur.com/Z3sUxUi.gif" alt="Header">
 </div>
-<h1>
-</h1>
 
+## Installation
 
+To install the game [download](https://github.com/arommers/so_long/archive/refs/heads/master.zip) and use the command 'cd' to move to the so_long folder.
+
+Run 'make' to compile all the files and run the executable './so_long' followed by the pathway to the Maps folder and a map of your choosing.
+
+```
+./so_long ./Maps/map1.ber
+```
+
+## The Game
 
 <div align="center">
   <img src="https://i.imgur.com/wXlRb9T.gif" alt="Game Screenshot">
