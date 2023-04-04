@@ -67,6 +67,9 @@ The map has to adhere to the following requirements:
 • You have to check if there’s a valid path in the map.\
 • You must be able to parse any kind of map, as long as it respects the above rules.
 
+If a file is provided that doesn't follow these rules then error handling has to be according to the specific fault.
+Most of these aren't too complicated, but I would like to invite you to take a look at the concept of [flood fill](https://www.youtube.com/watch?v=VuiXOc81UDM) that I used to check if there is a valid path available on the map.
+
 <div align="center">
   <img src="https://i.imgur.com/wXlRb9T.gif" alt="Game Screenshot">
 </div>
