@@ -70,6 +70,10 @@ The map has to adhere to the following requirements:
 If a file is provided that doesn't follow these rules then error handling has to be according to the specific fault.
 Most of these aren't too complicated, but I would like to invite you to take a look at the concept of [flood fill](https://www.youtube.com/watch?v=VuiXOc81UDM) that I used to check if there is a valid path available on the map.
 
+## Approach
+
+
+
 <div align="center">
   <img src="https://i.imgur.com/wXlRb9T.gif" alt="Game Screenshot">
 </div>
