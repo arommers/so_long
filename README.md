@@ -46,7 +46,20 @@ The game takes a`.ber. file that contains a map of ascii characters representing
 `E` for a map exit\
 `P` for the player’s starting position
 
-The map also has to adhere to the following requirements:
+Example of a valid map:
+
+`1111111111111111111`\
+`1C10000C000001C0011`\
+`101001111000C001111`\
+`1010001111100011111`\
+`1C100111110C0111111`\
+`1000111111110001111`\
+`10000000PE000000C01`\
+`1111100000000111111`\
+`100C00000000000C001`\
+`1111111111111111111`
+
+The map has to adhere to the following requirements:
 
 • The map must contain 1 exit, at least 1 collectible and 1 starting position to be valid.\
 • The map must be rectangular.\
