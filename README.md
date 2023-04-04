@@ -29,10 +29,32 @@ Run 'make' to compile all the files and run the executable './so_long' followed 
 
 ## The Game
 
+The assignment of so long is to make a 2d game (top down or profile) where the player’s goal is to collect every collectible present on the map, then escape through an exit. The game itself has to adhere to the following rules:
+
+• The `W, A, S, and D` keys must be used to move the main character.\
+• The player should be able to move in these 4 directions: up, down, left, right.\
+• The player should not be able to move into walls.\
+• At every move, the current number of movements must be displayed in the shell.
+
+The game takes a`.ber. file that contains a map of ascii characters representing the different elements as input.\
+The map also has to adhere to certain requirements:\
+It has to be constructed with 3 components: walls, collectibles, and free
+space.
+
+• The map can be composed of only these 5 characters:
+
+`0` for an empty space\
+`1` for a wall\
+`C` for a collectible\
+`E` for a map exit\
+`P` for the player’s starting position
+
+• The map must contain 1 exit, at least 1 collectible, and 1 starting position to be valid.\
+• The map must be rectangular.\
+• The map must be closed/surrounded by walls.\
+• You have to check if there’s a valid path in the map.\
+• You must be able to parse any kind of map, as long as it respects the above rules.\
+
 <div align="center">
   <img src="https://i.imgur.com/wXlRb9T.gif" alt="Game Screenshot">
 </div>
-
-# test
-
-
