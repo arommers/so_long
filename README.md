@@ -36,12 +36,9 @@ The assignment of so long is to make a 2d game (top down or profile) where the p
 • The player should not be able to move into walls.\
 • At every move, the current number of movements must be displayed in the shell.
 
-The game takes a`.ber. file that contains a map of ascii characters representing the different elements as input.\
-The map also has to adhere to certain requirements:\
-It has to be constructed with 3 components: walls, collectibles, and free
-space.
+#### Map
 
-• The map can be composed of only these 5 characters:
+The game takes a`.ber. file that contains a map of ascii characters representing the different elements as input.
 
 `0` for an empty space\
 `1` for a wall\
@@ -49,11 +46,13 @@ space.
 `E` for a map exit\
 `P` for the player’s starting position
 
-• The map must contain 1 exit, at least 1 collectible, and 1 starting position to be valid.\
+The map also has to adhere to the following requirements:
+
+• The map must contain 1 exit, at least 1 collectible and 1 starting position to be valid.\
 • The map must be rectangular.\
 • The map must be closed/surrounded by walls.\
 • You have to check if there’s a valid path in the map.\
-• You must be able to parse any kind of map, as long as it respects the above rules.\
+• You must be able to parse any kind of map, as long as it respects the above rules.
 
 <div align="center">
   <img src="https://i.imgur.com/wXlRb9T.gif" alt="Game Screenshot">
