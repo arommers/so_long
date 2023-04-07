@@ -5,9 +5,9 @@
 
 My very first graphical project! Creating a 2d topdown game in C as part of my coding journey at [CODAM](https://www.codam.nl)/ [NETWORK 42](https://www.42network.org/).
 
-Through "so long" I was introduced to the basics of the following areas of programming: window management, event handling, textures, and so forth. All areas which were instrumental in helping me improve my programming skills and knowledge. Since starting with programming, every step of the learning progress was as rewarding as it was frustrating. Running code to make something visually appear on screen however, was nothing short of exhilarating.
+So long introduced me to the basics of window management, event handling, textures, and much more. All areas which were instrumental in helping me improve my programming skills and knowledge. Since starting with programming, every step of the learning progress was as rewarding as it was frustrating. Running code to make something visually appear on screen for the first time however, was nothing short of exhilarating.
 
-To handle the window management and all things graphical during our project we were tasked to use the school graphical library: the MiniLibX or [MLX42](https://github.com/codam-coding-college/MLX42)*. These libraries were developed internally and includes basic necessary tools to open a window, create images and deal with keyboard and mouse events. Learning how to navigate this library and properly utilize it was a major part of bringing the project to a succesful end.
+To handle the window management and all things graphical during our project we were tasked to use the school graphical library: the MiniLibX or [MLX42](https://github.com/codam-coding-college/MLX42)*. These libraries were developed internally and include basic necessary tools to open a window, create images and deal with keyboard and mouse events. Learning how to navigate this library and properly utilize it was a major part of bringing the project to a succesful end.
 
 <sub>* If you are reading this as a 42 student make sure that your particular school actually allows the use of the MLX42 library.</sub>
 
@@ -72,8 +72,27 @@ Most of these aren't too complicated, but I would like to invite you to take a l
 
 ## Approach
 
+- Parsing the map into data, mostly in one big struct.
+- Use this data to check the validity of the provided map.
+- Initialize/create the images that we are going to use in our game.
+- Initialize a window and create and maintain a loop to mess around in our window.
+- Render our game map and necessary elements.
+- Create an even loops to handle input.
+- Play our game!
 
+One of the reasons why I decided to make a somewhat elaborate readme file was to help others with what I learned during this project. More specifically, where I got stuck and how to prevent others from wasting as much time as I did. Practically every time I stumbled could be derived from not using the functions in MLX42 library correctly. Occasionally this was due to the somewhat ambiguous wording of the documentation, but frequently because I apparently still don't know how to read.
 
+## Creating Images
+
+<h1>
+</h1>
 <div align="center">
   <img src="https://i.imgur.com/wXlRb9T.gif" alt="Game Screenshot">
 </div>
+
+<div>
+  <h1>Sources</h1>
+</div>
+
+- [MLX42](https://github.com/codam-coding-college/MLX42)
+- [ITCH.IO](https://itch.io/)
