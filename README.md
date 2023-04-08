@@ -84,7 +84,7 @@ One of the reasons why I decided to make a somewhat elaborate readme file was to
 
 ## Creating Images
 
-To be able to make a 2d game we actually are going to need visual representations of all the elements on our provided map. The `1's` representing the walls, the `C's` the collectibles, the `P` the player character, etc. The MLX42 library requires either an XPM or PNG file, both file formats to store digital images. In our case we opted to use PNG. For each element in our map we scoured the interent and selected an appropriate image. However, before MLX42 can use these images to visually generate our game, we have to transform the image data of the PNG's into a format that MLX42 can use. To accomplish this I used the following three MLX42 functions: 
+To be able to make a 2d game we are going to need a visual representations of all the elements on our provided map. At this point The `1's` representing the walls, the `C's` the collectibles, the `P` the player character, etc are just ASCII symbols stored in a 2d array. The MLX42 library requires either an XPM or PNG file, both file formats to store digital images and generate them in out window. For each element in our map we scoured the internet and selected an appropriate image to use. In our case we opted to use PNG's. However, before MLX42 can use these images to visually render our game, we have to transform the image data of the PNG's into a format that the graphics library can use. To manage this I used the following three MLX42 functions: 
 
 - ```mlx_texture_t* mlx_load_png(const char* path)```
 - ```mlx_image_t* mlx_texture_to_image(mlx_t* mlx, mlx_texture_t* texture)```
@@ -96,7 +96,15 @@ The `mlx_load_png` function takes a string that is the path to your stored png t
 
 ##### MLX_TEXTURE_TO_IMAGE
 
-Now that we have an mlx_texture_t struct with all the pixel data of our PNG we sadly can't start making magic happen in our window right away.  To use this texture data with the graphics library, it needs to be converted into a format that can be rendered on the screen. This is where the  `mlx_image_t structure` rears it's head. I once again refer to the [MLX42 header file](https://github.com/codam-coding-college/MLX42/blob/master/include/MLX42/MLX42.h) for more information on the members of the struct. One way to initialize such a struct is `mlx_texture_to_image function`.
+Now that we have an mlx_texture_t struct with all the pixel data of our PNG stored we sadly can't start making magic happen in our window just yet. To use this texture data with the graphics library, it needs to be converted into a format that can be rendered on the screen. Currently the graphics library has no idea how to do that. We need to create an `mlx_image_t` structure that can be used to draw the texture onto the screen. I once again refer to the [MLX42 header file](https://github.com/codam-coding-college/MLX42/blob/master/include/MLX42/MLX42.h) for more information on the (members of) struct. 
+
+The reason we can't just draw the `mlx_texture_t` structure on the screen is that it only contains the pixel data and does not have any information about where to draw the texture or how to handle it. For the graphics library to be able to use the texture the data needs to transformed. This transformation involves converting the pixel data in the texture from its original format (e.g., RGBA) to a format that can be rendered by the graphics library. The `mlx_image_t` data structure contains information about the format of the transformed image data, its width, height, and other details. It also contains a pointer to the actual transformed pixel data. To intialize such a struct we use `mlx_texture_to_image`. The function takes a pointer to our currently running window and a pointer to our texture data and initializes the image struct so the graphics library can actually work with our texture.
+
+We are now ready to start rendering some images.
+
+##### MLX_IMAGE_TO_WINDOW
+
+
 
 <h1>
 </h1>
