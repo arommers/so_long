@@ -38,7 +38,7 @@ The assignment of so long is to make a 2d game (top down or profile) where the p
 
 #### Map
 
-The game takes a`.ber. file that contains a map of ascii characters representing the different elements as input.
+The game takes a `.ber` file that contains a map of ascii characters representing the different elements as input.
 
 `0` for an empty space\
 `1` for a wall\
