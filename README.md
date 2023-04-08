@@ -92,19 +92,23 @@ To be able to make a 2d game we are going to need a visual representations of al
 
 ##### MLX_LOAD_PNG
 
-The `mlx_load_png` function takes a string that is the path to your stored png to load the PNG file into a `mlx_texture_t` struct. The function reads the file and decodes the pixel data from the PNG format into a format that can be used by the graphics library. This format consists of an array of bytes that represent the color of each pixel in the image. The function returns a pointer to an `mlx_texture_t` struct that contains information about the texture, including its dimensions, the format of the pixel data, and a pointer to the pixel data itself. The reason the pixel data needs to be decoded from the PNG format into a texture struct is that PNG files use a compressed format to store the image data. This compression helps to reduce the size of the file on disk, but it also means that the pixel data cannot be directly used by the graphics library without first being decoded. Take a look at the [MLX42 header file](https://github.com/codam-coding-college/MLX42/blob/master/include/MLX42/MLX42.h) to see what this struct actually contains.
+The `mlx_load_png` function is used to load a PNG file into a `mlx_texture_t` struct. This function takes a string that represents the path to the PNG file that you want to load. When this function is called, it reads the file and decodes the pixel data from the PNG format into a format that can be used by the graphics library. This format is an array of bytes that represent the color of each pixel in the image.
+
+Once the `mlx_load_png` function has finished decoding the pixel data, it returns a pointer to an `mlx_texture_t` struct. This struct contains information about the texture, including its dimensions, the format of the pixel data, and a pointer to the pixel data itself. The reason why the pixel data needs to be decoded from the PNG format into a texture struct is that PNG files use a compressed format to store the image data. This compression helps to reduce the size of the file on disk, but it also means that the pixel data cannot be directly used by the graphics library without first being decoded. Take a look at the [MLX42 header file](https://github.com/codam-coding-college/MLX42/blob/master/include/MLX42/MLX42.h) to see what this struct actually contains.
 
 ##### MLX_TEXTURE_TO_IMAGE
 
-Now that we have an mlx_texture_t struct with all the pixel data of our PNG stored we sadly can't start making magic happen in our window just yet. To use this texture data with the graphics library, it needs to be converted into a format that can be rendered on the screen. Currently the graphics library has no idea how to do that. We need to create an `mlx_image_t` structure that can be used to draw the texture onto the screen. I once again refer to the [MLX42 header file](https://github.com/codam-coding-college/MLX42/blob/master/include/MLX42/MLX42.h) for more information on the (members of) struct. 
+After loading our PNG file into an mlx_texture_t struct, we can't simply draw it on the screen just yet. This is because the graphics library needs to convert the pixel data stored in the struct into a format that can be rendered on the screen. Therefore, we need to create an mlx_image_t structure to represent the transformed image data that the graphics library can use.
 
-The reason we can't just draw the `mlx_texture_t` structure on the screen is that it only contains the pixel data and does not have any information about where to draw the texture or how to handle it. For the graphics library to be able to use the texture the data needs to transformed. This transformation involves converting the pixel data in the texture from its original format (e.g., RGBA) to a format that can be rendered by the graphics library. The `mlx_image_t` data structure contains information about the format of the transformed image data, its width, height, and other details. It also contains a pointer to the actual transformed pixel data. To intialize such a struct we use `mlx_texture_to_image`. The function takes a pointer to our currently running window and a pointer to our texture data and initializes the image struct so the graphics library can actually work with our texture.
+The mlx_image_t struct contains information about the format of the transformed image data, such as its width, height, and other details, along with a pointer to the actual transformed pixel data. To create this struct, we use the mlx_texture_to_image function, which takes a pointer to our currently running window and a pointer to our texture data. This function initializes the image struct so that the graphics library can work with our texture.
 
-We are now ready to start rendering some images.
+It's important to note that the transformation of the pixel data in the texture involves converting it from its original format, such as RGBA, to a format that can be rendered by the graphics library. Once we have our initialized image struct, we can start rendering our images on the screen.
 
 ##### MLX_IMAGE_TO_WINDOW
 
 
+
+The [MLX42 header file](https://github.com/codam-coding-college/MLX42/blob/master/include/MLX42/MLX42.h) can show the detailed information about these structs and functions.
 
 <h1>
 </h1>
