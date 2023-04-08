@@ -74,13 +74,17 @@ Most of these aren't too complicated, but I would like to invite you to take a l
 
 - Parsing the map into data, mostly in one big struct.
 - Use this data to check the validity of the provided map.
-- Initialize/create the images that we are going to use in our game.
 - Initialize a window and create and maintain a loop to mess around in our window.
+- Initialize/create the images that we are going to use in our game.
 - Render our game map and necessary elements.
 - Create an event loop to handle input.
 - Play our game!
 
-One of the reasons why I decided to make a somewhat elaborate readme file was to help others with what I learned during this project. More specifically, where I got stuck and how to prevent others from wasting as much time as I did. Practically every time I stumbled could be derived from not using the functions in MLX42 library correctly. Occasionally this was due to the somewhat ambiguous wording of the documentation, but frequently because I apparently still don't know how to read.
+One of the reasons why I put in the effort to create a somewhat elaborate readme file was to help fellow 42 students out there with what I learned during this project. I wanted to share my experience and help them through the areas where I got stuck and how to prevent them from wasting as much time as I did. I'll do my best to keep your trial and error to a minimum.
+
+More often than not, I found myself stumbling because I failed to use the functions in the MLX42 library properly. Occasionally, I found the documentation to be at fault, but nine of ten times it was the humbling realisation that I apparently still don't know how to read.
+
+Now, I won't be going into every single detail involved in bringing this project to a successful conclusion. But my hope is that this readme file clarifies some points that were unclear to me when I started out and save you some of the frustrations I experienced ;)
 
 ## Creating Images
 
@@ -106,15 +110,19 @@ It's important to note that the transformation of the pixel data in the texture 
 
 ##### MLX_IMAGE_TO_WINDOW
 
+The `mlx_put_image_to_window` function plays a crucial role in rendering the game. It allows us to display an image on the screen by taking a pointer to the specific `mlx_image_t`, a pointer to our current graphics window, and the coordinates where the image should be displayed in the window. However, while we can iterate over our 2D array that stores our ASCII map by just moving 1 index for a new location, the same is not true for our window and image placement.
 
+The PNG images we used in our game are 64 x 64 pixels in size, so whenever we would like to put an image into our window, we have to keep track of our X and Y coordinates. For every subsequent image we place after the first one, we have to increment our X or Y coordinate by the height or width of our image, which is 64. We used a while loop that iterates over our provided ASCII map, and at each index, we called mlx_put_image_to_window to put an image in our current window at the correct coordinates.
 
-The [MLX42 header file](https://github.com/codam-coding-college/MLX42/blob/master/include/MLX42/MLX42.h) can show the detailed information about these structs and functions.
+Check out our fully rendered map below!
 
 <h1>
 </h1>
 <div align="center">
   <img src="https://i.imgur.com/wXlRb9T.gif" alt="Game Screenshot">
 </div>
+<h1>
+</h1>
 
 <div>
   <h1>Sources</h1>
