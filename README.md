@@ -3,7 +3,7 @@
   <h1>So Long</h1>
 </div>
 
-My very first graphical project! Creating a 2d topdown game in C as part of my coding journey at [CODAM](https://www.codam.nl)/ [NETWORK 42](https://www.42network.org/).
+My very first graphical project! Creating a simple, 2d topdown game in C as part of my coding journey at [CODAM](https://www.codam.nl)/ [NETWORK 42](https://www.42network.org/).
 
 So long introduced me to the basics of window management, event handling, textures, and much more. All areas which were instrumental in helping me improve my programming skills and knowledge. Since starting with programming, every step of the learning progress was as rewarding as it was frustrating. Running code to make something visually appear on screen for the first time however, was nothing short of exhilarating.
 
@@ -77,12 +77,22 @@ Most of these aren't too complicated, but I would like to invite you to take a l
 - Initialize/create the images that we are going to use in our game.
 - Initialize a window and create and maintain a loop to mess around in our window.
 - Render our game map and necessary elements.
-- Create an even loops to handle input.
+- Create an event loop to handle input.
 - Play our game!
 
 One of the reasons why I decided to make a somewhat elaborate readme file was to help others with what I learned during this project. More specifically, where I got stuck and how to prevent others from wasting as much time as I did. Practically every time I stumbled could be derived from not using the functions in MLX42 library correctly. Occasionally this was due to the somewhat ambiguous wording of the documentation, but frequently because I apparently still don't know how to read.
 
 ## Creating Images
+
+To be able to make a 2d game we actually are going to need visual representations of all the elements on our provided map. The `1's` representing the walls, the `C's` the collectibles, the `P` the player character, etc. The MLX42 library requires either an XPM or PNG file, both file formats to store digital images. In our case we opted to use PNG. For each element in our map we scoured the interent and selected an appropriate image. However, before MLX42 can use these images to visually generate our game, we have to transform the image data of the PNG's into a format that MLX42 can use. To accomplish this I used the following three MLX42 functions: 
+
+- ```mlx_texture_t* mlx_load_png(const char* path)```
+- ```mlx_image_t* mlx_texture_to_image(mlx_t* mlx, mlx_texture_t* texture)```
+- ```int32_t mlx_image_to_window(mlx_t* mlx, mlx_image_t* img, int32_t x, int32_t y)```
+
+The `mlx_load_png` function takes a string that is the path to your stored png to load the PNG file into a `mlx_texture_t` struct. The function reads the file and decodes the pixel data from the PNG format into a format that can be used by the graphics library. This format consists of an array of bytes that represent the color of each pixel in the image. The function returns a pointer to an `mlx_texture_t` struct that contains information about the texture, including its dimensions, the format of the pixel data, and a pointer to the pixel data itself. The reason the pixel data needs to be decoded from the PNG format into a texture struct is that PNG files use a compressed format to store the image data. This compression helps to reduce the size of the file on disk, but it also means that the pixel data cannot be directly used by the graphics library without first being decoded. Take a look at the [MLX42 header file](https://github.com/codam-coding-college/MLX42/blob/master/include/MLX42/MLX42.h) to see what this struct actually contains.
+
+Now that we have an mlx_texture_t struct with all the pixel data of our PNG we sadly can't start making magic happen in our window right away.  To use this texture data with the graphics library, it needs to be converted into a format that can be rendered on the screen. An mlx_image_t structure. I once again refer to the [MLX42 header file](https://github.com/codam-coding-college/MLX42/blob/master/include/MLX42/MLX42.h) for more information on the struct. One of the methods to
 
 <h1>
 </h1>
