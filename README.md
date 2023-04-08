@@ -90,9 +90,13 @@ To be able to make a 2d game we actually are going to need visual representation
 - ```mlx_image_t* mlx_texture_to_image(mlx_t* mlx, mlx_texture_t* texture)```
 - ```int32_t mlx_image_to_window(mlx_t* mlx, mlx_image_t* img, int32_t x, int32_t y)```
 
+##### MLX_LOAD_PNG
+
 The `mlx_load_png` function takes a string that is the path to your stored png to load the PNG file into a `mlx_texture_t` struct. The function reads the file and decodes the pixel data from the PNG format into a format that can be used by the graphics library. This format consists of an array of bytes that represent the color of each pixel in the image. The function returns a pointer to an `mlx_texture_t` struct that contains information about the texture, including its dimensions, the format of the pixel data, and a pointer to the pixel data itself. The reason the pixel data needs to be decoded from the PNG format into a texture struct is that PNG files use a compressed format to store the image data. This compression helps to reduce the size of the file on disk, but it also means that the pixel data cannot be directly used by the graphics library without first being decoded. Take a look at the [MLX42 header file](https://github.com/codam-coding-college/MLX42/blob/master/include/MLX42/MLX42.h) to see what this struct actually contains.
 
-Now that we have an mlx_texture_t struct with all the pixel data of our PNG we sadly can't start making magic happen in our window right away.  To use this texture data with the graphics library, it needs to be converted into a format that can be rendered on the screen. An mlx_image_t structure. I once again refer to the [MLX42 header file](https://github.com/codam-coding-college/MLX42/blob/master/include/MLX42/MLX42.h) for more information on the struct. One of the methods to
+##### MLX_TEXTURE_TO_IMAGE
+
+Now that we have an mlx_texture_t struct with all the pixel data of our PNG we sadly can't start making magic happen in our window right away.  To use this texture data with the graphics library, it needs to be converted into a format that can be rendered on the screen. This is where the  `mlx_image_t structure` rears it's head. I once again refer to the [MLX42 header file](https://github.com/codam-coding-college/MLX42/blob/master/include/MLX42/MLX42.h) for more information on the members of the struct. One way to initialize such a struct is `mlx_texture_to_image function`.
 
 <h1>
 </h1>
