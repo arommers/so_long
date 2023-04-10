@@ -109,7 +109,7 @@ The mlx_loop function does not return until the program is terminated, either by
 
 With our loop established there are a couple of things we need to put place to make sure that all our events are registered, be they program or user initiated. In our version we have used the following two that take care of all our events.
 
-`void mlx_key_hook(mlx_t* mlx, mlx_keyfunc func, void* param)`
+`void mlx_key_hook(mlx_t* mlx, mlx_keyfunc func, void* param)`\
 `bool mlx_loop_hook(mlx_t* mlx, void (*f)(void*), void* param)`
 
 
