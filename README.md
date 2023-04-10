@@ -83,15 +83,17 @@ One of the reasons why I put in the effort to create a somewhat elaborate readme
 
 More often than not, I found myself stumbling because I failed to use the functions in the MLX42 library properly. Occasionally, I found the documentation to be at fault, but nine of ten times it was the humbling realisation that I apparently still don't know how to read.
 
-Now, I won't be going into every single detail involved in bringing this project to a successful conclusion. But my hope is that this readme file clarifies some points that were unclear to me when I started out and save you some of the frustrations I experienced ;)
+Now, this is not an A to Z for bringing this project to a successful conclusion. But my hope is that this readme file clarifies some points that were unclear to me when I started out and save you some of the frustrations I experienced ;)
 
 ## Initializing and Maintaining a Window
 
-In order to show off our game in all its glory, one of the most important things to do is set up a connection between our program and the X window system, which is a windowing system that provides a graphical user interface for Unix-based operating systems.
+In order to start and show off our game in all its glory, one of the first and most important things to do is set up a connection between our program and the X window system, which is a windowing system that provides a graphical user interface for Unix-based operating systems.
 
 The `mlx_t* mlx_init(int32_t width, int32_t height, const char* title, bool resize)` function takes care of us for this. This connection is necessary for our program to be able to interact with the windowing system and display graphical elements on the screen. Once the connection is established, our program can create windows, handle user input, and perform other graphical operations using the functions provided by the mlx library. `mlx_init()` returns a pointer to an [opaque structure](https://www.geeksforgeeks.org/opaque-pointer-in-cpp/) that represents the connection. That pointer can then be pased to other MLX42 functions that require a connection to the X server. They'll know exactly what window instance they should be working with. We'll stumble upon some examples in a bit.
 
-In order to display graphics on the screen using MiniLibX, the mlx_init function must be called at the beginning of the program. This function sets up a connection to the X server and returns a pointer to an opaque structure that represents the connection. This pointer is then passed as an argument to other MiniLibX functions that require a connection to the X server.
+Because `mlx_init` returns a pointer to the window instance, that will be used by other MLX42 functions, it must be called at the beginning of the program. Many seg faults have taught me this.
+
+
 
 ## Creating Images
 
