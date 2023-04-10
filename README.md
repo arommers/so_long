@@ -99,11 +99,13 @@ Because `mlx_init` returns a pointer to the window instance, that will be used b
 
 Now that we have a pointer to a window connection, we need to make sure that we have a method for any events that might happen. MLX42 provides us with just a way to do this.
 
-The `void mlx_loop(mlx_t* mlx)` function is a function that starts an infinite loop that continuously waits for events to occur in the X window system. When an event occurs, the appropriate function specified by the user is called to handle the event.
+The `void mlx_loop(mlx_t* mlx)` function only take a pointer to our window connection and starts an infinite loop that continuously waits for events to occur in the X window system. When an event occurs, the appropriate function specified by the user is called to handle the event.
 
 It essentially puts the program in a state where it is constantly waiting for input from the user, whether it be keyboard input, mouse input, or other types of input from the X window system. When an event occurs, the corresponding callback function is called to handle the event. For example, if a mouse button is pressed, the callback function specified for mouse events will be called.
 
 The mlx_loop function does not return until the program is terminated, either by the user or by the program itself.
+
+##### MLX_KEY_HOOK & MLX_LOOP_HOOK
 
 ## Creating Images
 
