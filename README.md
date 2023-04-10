@@ -107,6 +107,14 @@ The mlx_loop function does not return until the program is terminated, either by
 
 ##### MLX_KEY_HOOK & MLX_LOOP_HOOK
 
+With our loop established there are a couple of things we need to put place to make sure that all our events are registered, be they program or user initiated. In our version we have used the following two that take care of all our events.
+
+`void mlx_key_hook(mlx_t* mlx, mlx_keyfunc func, void* param)`
+`bool mlx_loop_hook(mlx_t* mlx, void (*f)(void*), void* param)`
+
+
+a hook is a mechanism that allows a program to intercept and respond to certain events or messages.
+
 ## Creating Images
 
 To be able to make a 2d game we are going to need a visual representations of all the elements on our provided map. At this point The `1's` representing the walls, the `C's` the collectibles, the `P` the player character, etc are just ASCII symbols stored in a 2d array. The MLX42 library requires either an XPM or PNG file, both file formats to store digital images and generate them in out window. For each element in our map we scoured the internet and selected an appropriate image to use. In our case we opted to use PNG's. However, before MLX42 can use these images to visually render our game, we have to transform the image data of the PNG's into a format that the graphics library can use. To manage this I used the following three MLX42 functions: 
