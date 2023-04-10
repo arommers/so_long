@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/20 10:39:48 by arommers      ########   odam.nl         */
+/*   Updated: 2023/04/10 23:32:30 by adri          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	main(int argc, char **argv)
 	render_map(game);
 	put_enemies(game);
 	string_to_screen(game);
-	mlx_key_hook(game->mlx, &move_hook, game);
-	mlx_loop_hook(game->mlx, &enemy_patrol, game);
+	mlx_key_hook(game->mlx, move_hook, game);
+	mlx_loop_hook(game->mlx, enemy_patrol, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
 	return (EXIT_SUCCESS);
