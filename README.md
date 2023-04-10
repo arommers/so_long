@@ -89,11 +89,21 @@ Now, this is not an A to Z for bringing this project to a successful conclusion.
 
 In order to start and show off our game in all its glory, one of the first and most important things to do is set up a connection between our program and the X window system, which is a windowing system that provides a graphical user interface for Unix-based operating systems.
 
+##### MLX_INIT
+
 The `mlx_t* mlx_init(int32_t width, int32_t height, const char* title, bool resize)` function takes care of us for this. This connection is necessary for our program to be able to interact with the windowing system and display graphical elements on the screen. Once the connection is established, our program can create windows, handle user input, and perform other graphical operations using the functions provided by the mlx library. `mlx_init()` returns a pointer to an [opaque structure](https://www.geeksforgeeks.org/opaque-pointer-in-cpp/) that represents the connection. That pointer can then be pased to other MLX42 functions that require a connection to the X server. They'll know exactly what window instance they should be working with. We'll stumble upon some examples in a bit.
 
 Because `mlx_init` returns a pointer to the window instance, that will be used by other MLX42 functions, it must be called at the beginning of the program. Many seg faults have taught me this.
 
+##### MLX_LOOP
 
+Now that we have a pointer to a window connection, we need to make sure that we have a method for any events that might happen. MLX42 provides us with just a way to do this.
+
+The `void mlx_loop(mlx_t* mlx)` function is a function that starts an infinite loop that continuously waits for events to occur in the X window system. When an event occurs, the appropriate function specified by the user is called to handle the event.
+
+It essentially puts the program in a state where it is constantly waiting for input from the user, whether it be keyboard input, mouse input, or other types of input from the X window system. When an event occurs, the corresponding callback function is called to handle the event. For example, if a mouse button is pressed, the callback function specified for mouse events will be called.
+
+The mlx_loop function does not return until the program is terminated, either by the user or by the program itself.
 
 ## Creating Images
 
