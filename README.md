@@ -86,6 +86,13 @@ More often than not, I found myself stumbling because I failed to use the functi
 
 Now, I won't be going into every single detail involved in bringing this project to a successful conclusion. But my hope is that this readme file clarifies some points that were unclear to me when I started out and save you some of the frustrations I experienced ;)
 
+## Initializing and Maintaining a Window
+
+To display our map and eventually game on our screens, one of the most important things to do is set up a connection between our program and the X window system, which is a windowing system that provides a graphical user interface for Unix-based operating systems.'
+The `mlx_t* mlx_init(int32_t width, int32_t height, const char* title, bool resize)` function takes care of us for this. This connection is necessary for our program to be able to interact with the windowing system and display graphical elements on the screen. Once the connection is established, our program can create windows, handle user input, and perform other graphical operations using the functions provided by the mlx library. `mlx_init()` returns a pointer to an opaque structure that represents the connection. This pointer is then passed as an argument to other MiniLibX functions that require a connection to the X server.
+
+In order to display graphics on the screen using MiniLibX, the mlx_init function must be called at the beginning of the program. This function sets up a connection to the X server and returns a pointer to an opaque structure that represents the connection. This pointer is then passed as an argument to other MiniLibX functions that require a connection to the X server.
+
 ## Creating Images
 
 To be able to make a 2d game we are going to need a visual representations of all the elements on our provided map. At this point The `1's` representing the walls, the `C's` the collectibles, the `P` the player character, etc are just ASCII symbols stored in a 2d array. The MLX42 library requires either an XPM or PNG file, both file formats to store digital images and generate them in out window. For each element in our map we scoured the internet and selected an appropriate image to use. In our case we opted to use PNG's. However, before MLX42 can use these images to visually render our game, we have to transform the image data of the PNG's into a format that the graphics library can use. To manage this I used the following three MLX42 functions: 
