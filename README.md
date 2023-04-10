@@ -11,10 +11,9 @@ To handle the window management and all things graphical during our project we w
 
 <sub>* If you are reading this as a 42 student make sure that your particular school actually allows the use of the MLX42 library.</sub>
 
-<h1>
-</h1>
+<h1></h1>
 <div align="center">
-  <img src="https://i.imgur.com/Z3sUxUi.gif" alt="Header">
+  <img src="https://i.imgur.com/Z3sUxUi.gif" alt="Header" style="width: 100%;">
 </div>
 
 ## Installation
