@@ -165,7 +165,7 @@ Check out our fully rendered map below!
 
 ## Concluding Remarks
 
-The so long project was a great introduction to window and graphics management and laid a solid foundation in graphics programming that I can build upon in future projects. 
+The so long project was a great introduction to window and graphics management and laid a solid foundation in graphics programming that I can build upon in future projects. By outlining the graphics library functions that I considered the most important I hope I provided a small stepping stone to some who are trying to get started with this project.
 
 In summary, it taught me how to set up a connection between a program and the X window system to display graphical elements on the screen. Handling windows and user input using the functions provided by MLX42. The use of hooks to handle various events such as key presses and window updates and How to read and manipulate data from files to create a game or simulation.
 
