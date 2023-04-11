@@ -169,7 +169,7 @@ The so long project was a great introduction to window and graphics management a
 
 In summary, it taught me how to set up a connection between a program and the X window system to display graphical elements on the screen. Handling windows and user input using the functions provided by MLX42. The use of hooks to handle various events such as key presses and window updates and How to read and manipulate data from files to create a game or simulation.
 
-Coding-wise, it was the first time I got a chance to work with structs which will prove very beneficial in the future. Especially in helping me adhere to our schools's strict formatting etiquettes. As collateral damage of using structs my understanding of pointers also improved. Although most of my written code did not introduce new concepts, the sheer volume of code provided excellent practice. Working on my biggest program so far improved my problem-solving skills, as well as my memory and error handling abilities.
+Coding-wise, it was the first time I got a chance to work with structs which will prove very beneficial. Especially in helping me adhere to our schools's strict formatting etiquettes. As collateral damage of using structs my understanding of pointers also improved. Although most of my written code did not introduce new concepts, the sheer volume of code provided excellent practice. Working on my biggest program so far improved my problem-solving skills, as well as my memory and error handling abilities.
 
 ## Sources
 
