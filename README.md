@@ -18,7 +18,7 @@ To handle the window management and all things graphical during our project we w
 
 ## Installation
 
-To install the game [download](https://github.com/arommers/so_long/archive/refs/heads/master.zip) and use the command 'cd' to move to the so_long folder.
+To install the game [download](https://github.com/arommers/so_long/archive/refs/heads/master.zip) it and use the command 'cd' to move to the so_long folder.
 
 Run 'make' to compile all the files and run the executable './so_long' followed by the pathway to the Maps folder and a map of your choosing.
 
