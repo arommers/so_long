@@ -126,7 +126,7 @@ The `mlx_loop_hook` on the other hand can set up a function that will be called 
 
 It is important to set up these callbacks before calling `mlx_loop`, because once `mlx_loop` is called, it enters a continuous loop that handles events and updates the display. If you try to set up the callbacks after the loop has started, they may not be registered in time to be called during the event loop.
 
-So now that we have a window connection and a continous loop running that checks for events it's time to actually put something in our window!
+With our window connection and a continous loop up and running it's time to actually put something in our window!
 
 ## Creating Images
 
@@ -169,6 +169,14 @@ Check out our fully rendered map below!
 <div>
   <h1>Sources</h1>
 </div>
+
+## Concluding Remarks
+
+The so long project was a great introduction to window and graphics management and laid a solid foundation in graphics programming that I can build upon in future projects. 
+
+In summary it taught me how to set up a connection between a program and the X window system to display graphical elements on the screen.\ 
+How to create windows and handle user input using the functions provided by MLX42.\ 
+How to use hooks to handle various events such as key presses and window updates and How to read and manipulate data from files to create a game or simulation
 
 - [MLX42](https://github.com/codam-coding-college/MLX42)
 - [ITCH.IO](https://itch.io/)
