@@ -158,25 +158,18 @@ The PNG images we used in our game are 64 x 64 pixels in size, so whenever we wo
 
 Check out our fully rendered map below!
 
-<h1>
-</h1>
+<h1></h1>
 <div align="center">
   <img src="https://i.imgur.com/wXlRb9T.gif" alt="Game Screenshot">
-</div>
-<h1>
-</h1>
-
-<div>
-  <h1>Sources</h1>
 </div>
 
 ## Concluding Remarks
 
 The so long project was a great introduction to window and graphics management and laid a solid foundation in graphics programming that I can build upon in future projects. 
 
-In summary it taught me how to set up a connection between a program and the X window system to display graphical elements on the screen.\ 
-How to create windows and handle user input using the functions provided by MLX42.\ 
-How to use hooks to handle various events such as key presses and window updates and How to read and manipulate data from files to create a game or simulation
+In summary, it taught me how to set up a connection between a program and the X window system to display graphical elements on the screen. Handling windows and user input using the functions provided by MLX42. The use of hooks to handle various events such as key presses and window updates and How to read and manipulate data from files to create a game or simulation
+
+## SOURCES
 
 - [MLX42](https://github.com/codam-coding-college/MLX42)
 - [ITCH.IO](https://itch.io/)
