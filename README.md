@@ -113,7 +113,7 @@ With our loop established there are a couple of things we need to put place to m
 - `bool mlx_loop_hook(mlx_t* mlx, void (*f)(void*), void* param)`
 
 In the mlx42 library, `mlx_loop_hook` and `mlx_key_hook` are used to set up callbacks for events that occur during the main event loop.
-They take three arguments. The pointer to our window connection, a function that will be called whenever one  the event conditions are met and a third of your own choosing. In our case our data struct, which contains all necessary variables to make the callback function actually work.
+They take three arguments. The pointer to our window connection, a function that will be called whenever one of the event conditions are met and a third of your own choosing. In our case our data struct, which contains all necessary variables to make the callback function actually work.
 
 `mlx_loop_hook` is used to set up a callback that is called each time the event loop runs, allowing you to perform some action or update the display before the next frame is rendered.
 
@@ -122,7 +122,7 @@ They take three arguments. The pointer to our window connection, a function that
 A hook is a mechanism that allows a program to intercept and respond to certain events or messages.\
 In the context of the MLX42 library, a hook is a function that is called whenever a specific event occurs. For instance, `the mlx_key_hook` function registers a callback function that is called whenever a key on the keyboard is pressed or released. The registered function is called a hook because it is "hooked" into the event processing loop of the MLX42 library, and is executed when the corresponding event occurs.
 
-The `mlx_loop_hook` on the other hand can set up a function that will be called by the graphics library at each iteration of the loop. The function, for example, could change the image of our walls. We could tell it to change between a couple of similar, but slightly different images every 5 iteration to give the our walls, which are bushes, the illusion to be swaying in the wind. In our actual game we used it to move our enemies however. Every 35 iteration of our loop, all our enemies move one position.
+The `mlx_loop_hook` on the other hand can set up a function that will be called by the graphics library at each iteration of the loop. The function, for example, could change the image of our walls. We could give it a function that changes between a couple of similar, but slightly different images every 5 iteration to give our walls, which are bushes, the illusion to be swaying in the wind. In our actual game we used it to move our enemies however. Every 35 iteration of our loop, all our enemies move one position.
 
 It is important to set up these callbacks before calling `mlx_loop`, because once `mlx_loop` is called, it enters a continuous loop that handles events and updates the display. If you try to set up the callbacks after the loop has started, they may not be registered in time to be called during the event loop.
 
