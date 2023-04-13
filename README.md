@@ -171,7 +171,7 @@ With our window connection and a continous loop up and running it's time to actu
 
 ## Creating Images
 
-To be able to make a 2d game we are going to need a visual representations of all the elements on our provided map. Currently our `1's` representing the walls, our `C's` the collectibles, the `P` the player character, etc are just ASCII symbols stored in a 2d array. The MLX42 library requires either an XPM or PNG file, both file formats to store digital images and generate them in our window. For each element in our map we scoured the internet and selected an appropriate image to use. In our case we went with images from the legend of Zelda to use as PNG's(I know the enemey character is from Super Mario, please don't bite my head off). However, before MLX42 can use these images to visually render our game, we have to transform the image data of the PNG's into a format that the graphics library can use. To manage this I used the following three MLX42 functions: 
+To be able to make a 2d game we are going to need a visual representations of all the elements on our provided map. Currently our `1's` representing the walls, our `C's` the collectibles, the `P` the player character, etc are just ASCII symbols stored in a 2d array. The MLX42 library requires either an XPM or PNG file, both file formats to store digital images and generate them in our window. For each element in our map we scoured the internet and selected an appropriate image to use. In our case we went with images from the legend of Zelda to use as PNG's (I know, I know the enemy character is from Super Mario, please don't bite my head off). However, before MLX42 can use these images to visually render our game, we have to transform the image data of the PNG's into a format that the graphics library can use. To manage this I used the following three MLX42 functions: 
 
 - ```mlx_texture_t* mlx_load_png(const char* path)```
 - ```mlx_image_t* mlx_texture_to_image(mlx_t* mlx, mlx_texture_t* texture)```
@@ -206,7 +206,7 @@ Check out our fully rendered map below!
 
 ## Concluding Remarks
 
-The so long project was a great introduction to window and graphics management and laid a solid foundation in graphics programming that I can build upon in future projects. By outlining the graphics library functions that I considered the most important I hope I provided a small stepping stone to some who are trying to get started with this project.
+The so long project was a great introduction to window and graphics management and laid a solid foundation in graphics programming that I can build upon in future projects. MLX42 offers at lot more functionality than what I utilized for so long. By outlining the graphics library functions that I considered the most important I do hope I provided a small stepping stone to some who are trying to navigate this project.
 
 In summary, it taught me how to set up a connection between a program and the X window system to display graphical elements on the screen. Handling windows and user input using the functions provided by MLX42. The use of hooks to handle various events such as key presses and window updates and How to read and manipulate data from files to create a game or simulation.
 
