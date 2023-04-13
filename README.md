@@ -158,6 +158,55 @@ The PNG images we used in our game are 64 x 64 pixels in size, so whenever we wo
 
 Check out our fully rendered map below!
 
+<table>
+  <tr>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>C</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>P</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>E</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>C</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+</table>
+
+
 <h1></h1>
 <div align="center">
   <img src="https://i.imgur.com/wXlRb9T.gif" alt="Game Screenshot">
