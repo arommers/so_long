@@ -193,7 +193,7 @@ The mlx_image_t struct contains information about the format of the transformed 
 
 It's important to note that the transformation of the pixel data in the texture involves converting it from its original format, such as RGBA, to a format that can be rendered by the graphics library. Once we have our initialized image struct, we can start rendering our images on the screen.
 
-<sub>* I'm not sure if it is necessary, but it's good form to delete the allocated memory for each texture struct after it has been loaded in a certain image struct, to prevent memory messiness.</sub>
+<sub>* I'm not sure if it is necessary, but it's good form at least to delete the allocated memory for each texture struct after it has been loaded in a certain image struct preventing possible memory messiness.</sub>
 
 ##### MLX_IMAGE_TO_WINDOW
 
