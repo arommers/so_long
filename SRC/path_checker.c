@@ -6,11 +6,11 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/09 11:55:43 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/10 15:47:44 by arommers      ########   odam.nl         */
+/*   Updated: 2023/04/14 09:43:48 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	free_grid(char **grid, size_t height)
 {

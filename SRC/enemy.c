@@ -6,11 +6,11 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/13 14:55:42 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/20 11:57:51 by arommers      ########   odam.nl         */
+/*   Updated: 2023/04/14 09:44:24 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static void	check_status(const t_game *game)
 {
@@ -72,16 +72,16 @@ void	enemy_patrol(void *temp)
 	i = 0;
 }
 
-t_img	*load_enemy_texture(mlx_t *mlx, t_img *texture)
+t_img	*load_enemy_texture(mlx_t *mlx, t_img *img)
 {
 	mlx_texture_t	*enemy;
 
 	enemy = mlx_load_png("./Sprites/Enemy.png");
 	if (!enemy)
 		error_message("Problem with loading png");
-	texture->enemy = mlx_texture_to_image(mlx, enemy);
-	if (!texture->enemy)
+	img->enemy = mlx_texture_to_image(mlx, enemy);
+	if (!img->enemy)
 		error_message("Problem with texture to image");
 	mlx_delete_texture(enemy);
-	return (texture);
+	return (img);
 }

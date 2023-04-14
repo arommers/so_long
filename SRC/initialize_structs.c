@@ -6,11 +6,11 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 14:53:00 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/20 15:55:22 by arommers      ########   odam.nl         */
+/*   Updated: 2023/04/14 09:44:17 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static void	load_link_textures(t_game *game)
 {

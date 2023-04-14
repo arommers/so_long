@@ -6,11 +6,11 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/16 11:51:33 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/19 12:30:06 by arommers      ########   odam.nl         */
+/*   Updated: 2023/04/14 09:43:44 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../so_long.h"
+#include	"so_long.h"
 
 void	image_select(t_game *data, size_t y, size_t x)
 {

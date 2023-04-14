@@ -6,11 +6,11 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 11:49:11 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/20 10:07:31 by arommers      ########   odam.nl         */
+/*   Updated: 2023/04/14 09:43:53 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../so_long.h"
+#include	"so_long.h"
 
 void	load_link(t_game *game, char dir)
 {

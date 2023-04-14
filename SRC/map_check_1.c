@@ -6,11 +6,11 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/20 16:00:49 by arommers      ########   odam.nl         */
+/*   Updated: 2023/04/14 09:44:02 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	check_invalid_content(int i)
 {

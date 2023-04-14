@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   coordinates.c                                      :+:    :+:            */
+/*   get_coordinates.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 14:53:00 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/02 16:44:06 by arommers      ########   odam.nl         */
+/*   Updated: 2023/04/14 09:44:20 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 size_t	get_link_pos(t_game *game, char c )
 {

@@ -6,11 +6,11 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/18 14:46:36 by arommers      #+#    #+#                 */
-/*   Updated: 2023/02/20 10:57:31 by arommers      ########   odam.nl         */
+/*   Updated: 2023/04/14 09:43:42 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	string_to_screen(t_game *game)
 {

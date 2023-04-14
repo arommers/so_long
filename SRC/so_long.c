@@ -6,11 +6,11 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/15 12:22:19 by arommers      #+#    #+#                 */
-/*   Updated: 2023/04/10 23:32:30 by adri          ########   odam.nl         */
+/*   Updated: 2023/04/14 09:43:39 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	main(int argc, char **argv)
 {

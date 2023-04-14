@@ -6,7 +6,7 @@
 /*   By: arommers <arommers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/13 11:33:22 by arommers      #+#    #+#                 */
-/*   Updated: 2023/04/11 10:29:19 by adri          ########   odam.nl         */
+/*   Updated: 2023/04/14 09:44:44 by arommers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "../MLX42/include/MLX42/MLX42.h"
-# include "../libft/libft.h"
+# include "../Libft/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
@@ -81,17 +81,17 @@ size_t	get_link_pos(t_game *game, char c);
 size_t	get_exit_pos(t_game *game, char c );
 
 // make images functions
-t_img	*load_grass_texture(mlx_t *mlx, t_img *texture);
-t_img	*load_bush_texture(mlx_t *mlx, t_img *texture);
-t_img	*load_rupee_texture(mlx_t *mlx, t_img *texture);
-t_img	*load_link_texture(mlx_t *mlx, t_img *texture);
-t_img	*load_link_up(mlx_t *mlx, t_img *texture);
-t_img	*load_link_down(mlx_t *mlx, t_img *texture);
-t_img	*load_link_right(mlx_t *mlx, t_img *texture);
-t_img	*load_link_left(mlx_t *mlx, t_img *texture);
-t_img	*load_enemy_texture(mlx_t *mlx, t_img *texture);
-t_img	*load_exit_closed(mlx_t *mlx, t_img *texture);
-t_img	*load_exit_open(mlx_t *mlx, t_img *texture);
+t_img	*load_grass_texture(mlx_t *mlx, t_img *img);
+t_img	*load_bush_texture(mlx_t *mlx, t_img *img);
+t_img	*load_rupee_texture(mlx_t *mlx, t_img *img);
+t_img	*load_link_texture(mlx_t *mlx, t_img *img);
+t_img	*load_link_up(mlx_t *mlx, t_img *img);
+t_img	*load_link_down(mlx_t *mlx, t_img *img);
+t_img	*load_link_right(mlx_t *mlx, t_img *img);
+t_img	*load_link_left(mlx_t *mlx, t_img *img);
+t_img	*load_enemy_texture(mlx_t *mlx, t_img *img);
+t_img	*load_exit_closed(mlx_t *mlx, t_img *img);
+t_img	*load_exit_open(mlx_t *mlx, t_img *img);
 t_img	*initialize_img_struct(mlx_t *mlx);
 void	image_select(t_game *data, size_t y, size_t x);
 void	load_link(t_game *game, char dir);
