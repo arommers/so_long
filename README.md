@@ -201,7 +201,7 @@ Check out our fully rendered map below!
 
 <h1></h1>
 <div align="center">
-  <img src=https://i.imgur.com/uhHGb5x.png alt="Game Screenshot">
+  <img src=https://i.imgur.com/etrUT1A.png alt="Game Screenshot">
 </div>
 
 ## Concluding Remarks
