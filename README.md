@@ -185,13 +185,15 @@ The `mlx_load_png` function is used to load a PNG file into a `mlx_texture_t` st
 
 Once the `mlx_load_png` function has finished decoding the pixel data, it returns a pointer to an `mlx_texture_t` struct. This struct contains information about the texture, including its dimensions, the format of the pixel data, and a pointer to the pixel data itself. The reason why the pixel data needs to be decoded from the PNG format into a texture struct is that PNG files use a compressed format to store the image data. This compression helps to reduce the size of the file on disk, but it also means that the pixel data cannot be directly used by the graphics library without first being decoded. Take a look at the [MLX42 header file](https://github.com/codam-coding-college/MLX42/blob/master/include/MLX42/MLX42.h) to see what this struct actually contains.
 
-##### MLX_TEXTURE_TO_IMAGE
+##### MLX_TEXTURE_TO_IMAGE*
 
 After loading our PNG file into an mlx_texture_t struct, we can't simply draw it on the screen just yet. This is because the graphics library needs to convert the pixel data stored in the struct into a format that can be rendered on the screen. Therefore, we need to create an mlx_image_t structure to represent the transformed image data that the graphics library can use.
 
 The mlx_image_t struct contains information about the format of the transformed image data, such as its width, height, and other details, along with a pointer to the actual transformed pixel data. To create this struct, we use the mlx_texture_to_image function, which takes a pointer to our currently running window and a pointer to our texture data. This function initializes the image struct so that the graphics library can work with our texture.
 
 It's important to note that the transformation of the pixel data in the texture involves converting it from its original format, such as RGBA, to a format that can be rendered by the graphics library. Once we have our initialized image struct, we can start rendering our images on the screen.
+
+<sub>* I'm not sure if it is necessary, but it's good form to delete the allocated memory for each texture struct after it has been loaded in a certain image struct, to prevent memory messiness.</sub>
 
 ##### MLX_IMAGE_TO_WINDOW
 
