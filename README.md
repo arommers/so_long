@@ -162,7 +162,9 @@ The `mlx_loop_hook` on the other hand can set up a function that will be called 
 
 It is important to set up these callbacks before calling `mlx_loop`, because once `mlx_loop` is called, it enters a continuous loop that handles events and updates the display. If you try to set up the callbacks after the loop has started, they may not be registered in time to be called during the event loop.
 
-With our window connection and a continous loop up and running it's time to actually put something in our window!
+With our window connection and a continous loop up and running it's time to actually put something in our window!*
+
+<sub>* If your program closes, be they program or user initiated, make sure to close your window and clean up your mess. `mlx_close_window` notifies MLX42 that it should stop rendering and exit the main loop. `mlx_terminate` takes care of releasing of all our allocated resources, just like mom and dad used to!</sub>
 
 <h1></h1>
 <div align="center">
